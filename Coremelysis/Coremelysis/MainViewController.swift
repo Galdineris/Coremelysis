@@ -11,11 +11,14 @@ import UIKit
 final class MainViewController: UIViewController {
     @AutoLayout var infoLabel: UILabel
     @AutoLayout var userTextField: UITextField
-    @AutoLayout var analyseButton: UIButton
+    @AutoLayout var analyzeButton: UIButton
     @AutoLayout var resultLabel: UILabel
     @AutoLayout var mainStack: UIStackView
 
-    init() {
+    private let viewModel: MainViewModel
+
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -36,12 +39,13 @@ final class MainViewController: UIViewController {
 
         infoLabel.text = "Information"
         userTextField.placeholder = "Type Here"
-        analyseButton.backgroundColor = .systemBlue
+        analyzeButton.backgroundColor = .systemBlue
+        analyzeButton.addTarget(self, action: #selector(analyze), for: .touchUpInside)
         resultLabel.text = "not infered"
 
         mainStack.addArrangedSubview(infoLabel)
         mainStack.addArrangedSubview(userTextField)
-        mainStack.addArrangedSubview(analyseButton)
+        mainStack.addArrangedSubview(analyzeButton)
         mainStack.addArrangedSubview(resultLabel)
 
         self.view.addSubview(mainStack)
@@ -54,5 +58,9 @@ final class MainViewController: UIViewController {
             mainStack.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
             mainStack.trailingAnchor.constraint(equalTo: guides.trailingAnchor)
         ])
+    }
+
+    @objc private func analyze() {
+        resultLabel.text = viewModel.analyze(userTextField.text ?? "")
     }
 }
