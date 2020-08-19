@@ -34,14 +34,26 @@ final class MainViewController: UIViewController {
 
     private func setupLayout() {
         mainStack.axis = .vertical
-        mainStack.distribution = .fillEqually
         mainStack.alignment = .center
+        mainStack.distribution = .equalCentering
+
 
         infoLabel.text = "Information"
+        infoLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+
         userTextField.placeholder = "Type Here"
+        userTextField.font = UIFont.preferredFont(forTextStyle: .headline)
+
         analyzeButton.backgroundColor = .systemBlue
         analyzeButton.addTarget(self, action: #selector(analyze), for: .touchUpInside)
+        analyzeButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        analyzeButton.setTitle("Analyze", for: .normal)
+        analyzeButton.tintColor = .systemGray6
+        analyzeButton.layer.cornerRadius = 50 / 2
+        analyzeButton.clipsToBounds = true
+
         resultLabel.text = "not infered"
+        resultLabel.font = .preferredFont(forTextStyle: .headline)
 
         mainStack.addArrangedSubview(infoLabel)
         mainStack.addArrangedSubview(userTextField)
@@ -53,10 +65,13 @@ final class MainViewController: UIViewController {
         let guides = self.view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            mainStack.topAnchor.constraint(equalTo: guides.topAnchor),
-            mainStack.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
-            mainStack.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
-            mainStack.trailingAnchor.constraint(equalTo: guides.trailingAnchor)
+            mainStack.heightAnchor.constraint(equalTo: guides.heightAnchor, multiplier: 0.6),
+            mainStack.widthAnchor.constraint(equalTo: guides.widthAnchor, multiplier: 0.8),
+            mainStack.centerYAnchor.constraint(equalTo: guides.centerYAnchor),
+            mainStack.centerXAnchor.constraint(equalTo: guides.centerXAnchor),
+
+            analyzeButton.widthAnchor.constraint(equalToConstant: 150),
+            analyzeButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 
