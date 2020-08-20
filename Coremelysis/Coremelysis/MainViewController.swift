@@ -29,6 +29,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        self.title = "Coremelysis"
         setupLayout()
     }
 
