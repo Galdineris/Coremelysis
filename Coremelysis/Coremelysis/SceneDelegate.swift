@@ -14,11 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let vc = MainViewController(viewModel: MainViewModel())
-        let navViewController = UINavigationController(rootViewController: vc)
+        let mainVC = MainViewController(viewModel: MainViewModel())
+        let historyVC = HistoryViewController(viewModel: HistoryViewModel())
         let tabBarController = UITabBarController(nibName: nil, bundle: nil)
-        tabBarController.viewControllers = [navViewController]
-        navViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        tabBarController.viewControllers = [mainVC, historyVC]
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = tabBarController

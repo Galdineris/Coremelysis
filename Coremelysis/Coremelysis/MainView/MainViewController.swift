@@ -23,13 +23,12 @@ final class MainViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Fatal Error: ViewController should not be initialized from Storyboard.")
+        fatalError("Fatal Error: ViewController should not be deserialized.")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        self.title = "Coremelysis"
         setupLayout()
     }
 
