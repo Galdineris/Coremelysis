@@ -15,9 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let mainVC = MainViewController(viewModel: MainViewModel())
+        let settingsVC = SettingsViewController(viewModel: SettingsViewModel())
         let historyVC = HistoryViewController(viewModel: HistoryViewModel())
         let tabBarController = UITabBarController(nibName: nil, bundle: nil)
-        tabBarController.viewControllers = [mainVC, historyVC]
+        tabBarController.viewControllers = [historyVC, mainVC, settingsVC]
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = tabBarController

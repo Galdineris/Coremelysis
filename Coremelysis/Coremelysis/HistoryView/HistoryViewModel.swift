@@ -8,6 +8,13 @@
 
 import Foundation
 
+protocol HistoryViewModelDelegate: AnyObject {
+    
+}
+
 final class HistoryViewModel {
+
+    weak var delegate: HistoryViewModelDelegate?
+    
     init() {}
 }

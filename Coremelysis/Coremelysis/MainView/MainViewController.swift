@@ -33,6 +33,8 @@ final class MainViewController: UIViewController {
     }
 
     private func setupLayout() {
+        view.backgroundColor = .systemBackground
+
         mainStack.axis = .vertical
         mainStack.alignment = .center
         mainStack.distribution = .equalCentering
