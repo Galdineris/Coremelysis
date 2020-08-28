@@ -28,6 +28,11 @@ final class SettingsViewController: UIViewController {
 
         setupLayout()
         setupTableView()
+
+        title = "Settings"
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
 
     private func setupLayout() {
@@ -53,13 +58,7 @@ final class SettingsViewController: UIViewController {
 
         settingsTableView.isScrollEnabled = false
 
-        settingsTableView.tableHeaderView = {
-            let view = UILabel()
-            view.text = "Settings"
-            view.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
-            view.backgroundColor = .clear
-            return view
-        }()
+        settingsTableView.tableFooterView = UIView()
     }
 }
 
@@ -85,10 +84,6 @@ extension SettingsViewController: UITableViewDataSource {
         default:
             return "ZERO"
         }
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
     }
 
 

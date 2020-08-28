@@ -27,6 +27,10 @@ final class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+
+        title = "History"
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupLayout() {

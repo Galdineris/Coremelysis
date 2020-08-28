@@ -30,6 +30,10 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         setupLayout()
+
+        title = "Coremelysis"
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupLayout() {
