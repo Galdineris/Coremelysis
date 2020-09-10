@@ -23,17 +23,22 @@ final class MainViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Fatal Error: ViewController should not be initialized from Storyboard.")
+        fatalError("Fatal Error: ViewController should not be deserialized.")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        self.title = "Coremelysis"
         setupLayout()
+
+        title = "Coremelysis"
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupLayout() {
+        view.backgroundColor = .systemBackground
+
         mainStack.axis = .vertical
         mainStack.alignment = .center
         mainStack.distribution = .equalCentering

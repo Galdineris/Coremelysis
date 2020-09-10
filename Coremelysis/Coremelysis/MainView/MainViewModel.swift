@@ -8,7 +8,13 @@
 
 import NaturalLanguage
 
+protocol MainViewModelDelegate: AnyObject {
+
+}
+
 final class MainViewModel {
+
+    weak var delegate: MainViewModelDelegate?
 
     init() {
 
