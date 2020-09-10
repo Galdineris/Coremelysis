@@ -10,9 +10,9 @@ import UIKit
 
 @propertyWrapper final class AutoLayout<View: UIView> {
     private lazy var view: View = {
-        let _view = View(frame: .zero)
-        _view.translatesAutoresizingMaskIntoConstraints = false
-        return _view
+        let view = View(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     var wrappedValue: View {
         return view

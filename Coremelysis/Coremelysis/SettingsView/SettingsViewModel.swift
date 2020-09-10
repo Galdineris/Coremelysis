@@ -17,6 +17,5 @@ final class SettingsViewModel {
     weak var delegate: SettingsViewModelDelegate?
 
     init() {
-        
     }
 }
