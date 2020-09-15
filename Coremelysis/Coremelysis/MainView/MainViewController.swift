@@ -10,10 +10,9 @@ import UIKit
 
 final class MainViewController: UIViewController {
     @AutoLayout var infoLabel: UILabel
-    @AutoLayout var userTextField: UITextField
+    @AutoLayout var contentTextField: UITextField
     @AutoLayout var analyzeButton: UIButton
     @AutoLayout var resultLabel: UILabel
-    @AutoLayout var mainStack: UIStackView
 
     private let viewModel: MainViewModel
 
@@ -29,6 +28,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        setupUI()
         setupLayout()
 
         title = "Coremelysis"
@@ -36,51 +36,74 @@ final class MainViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    private func setupLayout() {
-        view.backgroundColor = .systemBackground
+    private func setupUI() {
+        setupInfoLabel()
+        setupContentTextField()
+        setupAnalyzeButton()
+        setupResultLabel()
+    }
 
-        mainStack.axis = .vertical
-        mainStack.alignment = .center
-        mainStack.distribution = .equalCentering
+    private func setupInfoLabel() {
+        infoLabel.text = """
+        Write bellow what you want the app to analyze.
+        The more content you provide, the better the analysis will be.
+        """
+        infoLabel.font = .preferredFont(forTextStyle: .body)
+        infoLabel.numberOfLines = 0
 
-        infoLabel.text = "Information"
-        infoLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        view.addSubview(infoLabel)
+    }
 
-        userTextField.placeholder = "Type Here"
-        userTextField.font = UIFont.preferredFont(forTextStyle: .headline)
+    private func setupContentTextField() {
+        contentTextField.placeholder = "Add here the content to be analyzed"
+        contentTextField.font = .preferredFont(forTextStyle: .headline)
 
-        analyzeButton.backgroundColor = .systemBlue
-        analyzeButton.addTarget(self, action: #selector(analyze), for: .touchUpInside)
-        analyzeButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        view.addSubview(contentTextField)
+    }
+
+    private func setupAnalyzeButton() {
         analyzeButton.setTitle("Analyze", for: .normal)
-        analyzeButton.tintColor = .systemGray6
-        analyzeButton.layer.cornerRadius = 50 / 2
-        analyzeButton.clipsToBounds = true
+        analyzeButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
+        analyzeButton.setTitleColor(.black, for: .normal)
+        analyzeButton.addTarget(self, action: #selector(analyze), for: .touchUpInside)
 
-        resultLabel.text = "not infered"
+        view.addSubview(analyzeButton)
+    }
+
+    private func setupResultLabel() {
+        resultLabel.text = ""
         resultLabel.font = .preferredFont(forTextStyle: .headline)
 
-        mainStack.addArrangedSubview(infoLabel)
-        mainStack.addArrangedSubview(userTextField)
-        mainStack.addArrangedSubview(analyzeButton)
-        mainStack.addArrangedSubview(resultLabel)
+        view.addSubview(resultLabel)
+    }
 
-        self.view.addSubview(mainStack)
-
-        let guides = self.view.safeAreaLayoutGuide
+    private func setupLayout() {
+        let safeAreaLayoutGuides = self.view.safeAreaLayoutGuide
+        let layoutMarginsGuide = self.view.layoutMarginsGuide
 
         NSLayoutConstraint.activate([
-            mainStack.heightAnchor.constraint(equalTo: guides.heightAnchor, multiplier: 0.6),
-            mainStack.widthAnchor.constraint(equalTo: guides.widthAnchor, multiplier: 0.8),
-            mainStack.centerYAnchor.constraint(equalTo: guides.centerYAnchor),
-            mainStack.centerXAnchor.constraint(equalTo: guides.centerXAnchor),
+            infoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuides.topAnchor,
+                                           constant: LayoutSpec.Spacing.fromNavigation),
+            infoLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
+            infoLabel.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
-            analyzeButton.widthAnchor.constraint(equalToConstant: 150),
-            analyzeButton.heightAnchor.constraint(equalToConstant: 50)
+            contentTextField.topAnchor.constraint(equalTo: infoLabel.bottomAnchor,
+                                                  constant: LayoutSpec.Spacing.default),
+            contentTextField.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
+            contentTextField.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
+
+            analyzeButton.topAnchor.constraint(equalTo: contentTextField.bottomAnchor,
+                                               constant: LayoutSpec.Spacing.default),
+            analyzeButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
+            analyzeButton.heightAnchor.constraint(equalToConstant: LayoutSpec.Button.height),
+
+            resultLabel.topAnchor.constraint(equalTo: analyzeButton.bottomAnchor,
+                                             constant: LayoutSpec.Spacing.default),
+            resultLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor)
         ])
     }
 
     @objc private func analyze() {
-        resultLabel.text = viewModel.analyze(userTextField.text ?? "")
+        resultLabel.text = viewModel.analyze(contentTextField.text ?? "")
     }
 }

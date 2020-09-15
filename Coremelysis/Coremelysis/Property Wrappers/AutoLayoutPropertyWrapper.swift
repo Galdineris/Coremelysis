@@ -14,6 +14,7 @@ import UIKit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
     var wrappedValue: View {
         return view
     }
