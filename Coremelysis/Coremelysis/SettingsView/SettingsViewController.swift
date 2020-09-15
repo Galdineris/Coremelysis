@@ -13,7 +13,6 @@ final class SettingsViewController: UIViewController {
 
     private let viewModel: SettingsViewModel
 
-
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -32,7 +31,6 @@ final class SettingsViewController: UIViewController {
         title = "Settings"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
 
     private func setupLayout() {
@@ -72,7 +70,6 @@ extension SettingsViewController: UITableViewDataSource {
         return 3
     }
 
-
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -85,7 +82,6 @@ extension SettingsViewController: UITableViewDataSource {
             return "ZERO"
         }
     }
-
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -105,6 +101,4 @@ extension SettingsViewController: UITableViewDataSource {
         cell.textLabel?.text = "Teste"
         return cell
     }
-
-
 }

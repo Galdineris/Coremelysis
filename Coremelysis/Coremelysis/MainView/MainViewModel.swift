@@ -15,35 +15,28 @@ protocol MainViewModelDelegate: AnyObject {
 final class MainViewModel {
 
     weak var delegate: MainViewModelDelegate?
+    private let mlManager: MLManager
 
-    init() {
-
+    init(mlManager: MLManager) {
+        self.mlManager = mlManager
     }
 
     func analyze(_ paragraph: String) -> String {
-        let tagger = NLTagger(tagSchemes: [.sentimentScore])
+        let score = mlManager.analyze(paragraph)
 
-        tagger.string = paragraph
-
-        let analysedString = tagger.tag(at: paragraph.startIndex, unit: .paragraph, scheme: .sentimentScore).0
-
-        if let score = Double(analysedString?.rawValue ?? "0") {
-            switch score {
-            case -1 ... -0.5:
-                return Sentiment.awful.rawValue
-            case ..<0:
-                return Sentiment.bad.rawValue
-            case 0:
-                return Sentiment.neutral.rawValue
-            case ..<0.5:
-                return Sentiment.good.rawValue
-            case ..<1:
-                return Sentiment.great.rawValue
-            default:
-                return Sentiment.notFound.rawValue
-            }
+        switch score {
+        case -1 ... -0.5:
+            return Sentiment.awful.rawValue
+        case ..<0:
+            return Sentiment.bad.rawValue
+        case 0:
+            return Sentiment.neutral.rawValue
+        case ..<0.5:
+            return Sentiment.good.rawValue
+        case ...1:
+            return Sentiment.great.rawValue
+        default:
+            return Sentiment.notFound.rawValue
         }
-
-        return Sentiment.notFound.rawValue
     }
 }

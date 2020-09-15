@@ -10,17 +10,19 @@
 		A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41224F7F6A50085BC58 /* SettingsViewController.swift */; };
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
-		A4BD58CB24EC9BC7004F38FB /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
 		F214C92E24F6AFC600170DA8 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92D24F6AFC600170DA8 /* HistoryModel.swift */; };
-		F2625D6A24E5FE5000ABBA88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
 		F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */; };
 		F2625D7024E5FE5500ABBA88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */; };
 		F2625D7324E5FE5500ABBA88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7224E5FE5500ABBA88 /* Preview Assets.xcassets */; };
 		F2625D7624E5FE5500ABBA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */; };
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
+		F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */; };
 		F2B96B5E24E755C000AD118B /* AutoLayoutPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */; };
+		F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
+		F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
+		F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +41,9 @@
 		F2625D7724E5FE5500ABBA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
 		F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutPropertyWrapper.swift; sourceTree = "<group>"; };
+		F2B99ED225091D5A0005D9B4 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				A486C41124F7F68F0085BC58 /* SettingsView */,
 				F271FC3124F6A8BD00011DD1 /* HistoryView */,
 				F271FC2B24F6A7F800011DD1 /* MainView */,
+				F2B99ED125091CFA0005D9B4 /* MachineLearning */,
 				F271FC2D24F6A84400011DD1 /* Enums */,
 				F271FC2E24F6A84B00011DD1 /* Property Wrappers */,
 				F271FC2C24F6A82A00011DD1 /* Resources */,
@@ -117,6 +122,7 @@
 				F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */,
 				F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */,
 				F2625D7724E5FE5500ABBA88 /* Info.plist */,
+				F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -147,6 +153,14 @@
 			path = HistoryView;
 			sourceTree = "<group>";
 		};
+		F2B99ED125091CFA0005D9B4 /* MachineLearning */ = {
+			isa = PBXGroup;
+			children = (
+				F2B99ED225091D5A0005D9B4 /* MLManager.swift */,
+			);
+			path = MachineLearning;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,6 +171,7 @@
 				F2625D6224E5FE5000ABBA88 /* Sources */,
 				F2625D6324E5FE5000ABBA88 /* Frameworks */,
 				F2625D6424E5FE5000ABBA88 /* Resources */,
+				F2B99ED62509211E0005D9B4 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -213,17 +228,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F2B99ED62509211E0005D9B4 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2625D6224E5FE5000ABBA88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */,
+				F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
-				A4BD58CB24EC9BC7004F38FB /* Sentiment.swift in Sources */,
 				F214C92E24F6AFC600170DA8 /* HistoryModel.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
-				F2625D6A24E5FE5000ABBA88 /* AppDelegate.swift in Sources */,
 				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
+				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
+				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
 				A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */,

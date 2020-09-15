@@ -35,7 +35,6 @@ final class HistoryViewController: UIViewController {
 
     private func setupLayout() {
         view.backgroundColor = .systemBackground
-        
         view.addSubview(historyTableView)
         view.addSubview(summaryView)
 

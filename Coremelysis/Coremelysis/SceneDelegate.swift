@@ -12,9 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let mainVC = MainViewController(viewModel: MainViewModel())
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
+        let mainVC = MainViewController(viewModel: MainViewModel(mlManager: MLManager()))
         let mainNavController = UINavigationController(rootViewController: mainVC)
         let settingsVC = SettingsViewController(viewModel: SettingsViewModel())
         let settingsNavController = UINavigationController(rootViewController: settingsVC)
@@ -47,4 +48,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 }
-

@@ -43,7 +43,6 @@ final class MainViewController: UIViewController {
         mainStack.alignment = .center
         mainStack.distribution = .equalCentering
 
-
         infoLabel.text = "Information"
         infoLabel.font = UIFont.preferredFont(forTextStyle: .title1)
 
