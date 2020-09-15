@@ -33,7 +33,7 @@ final class MainViewModel {
             return Sentiment.neutral.rawValue
         case ..<0.5:
             return Sentiment.good.rawValue
-        case ..<1:
+        case ...1:
             return Sentiment.great.rawValue
         default:
             return Sentiment.notFound.rawValue

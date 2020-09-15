@@ -18,6 +18,7 @@
 		F2625D7624E5FE5500ABBA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */; };
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
+		F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */; };
 		F2B96B5E24E755C000AD118B /* AutoLayoutPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */; };
 		F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
 		F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		F2625D7724E5FE5500ABBA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
 		F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutPropertyWrapper.swift; sourceTree = "<group>"; };
 		F2B99ED225091D5A0005D9B4 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */,
 				F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */,
 				F2625D7724E5FE5500ABBA88 /* Info.plist */,
+				F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				F214C92E24F6AFC600170DA8 /* HistoryModel.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
+				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
 				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
