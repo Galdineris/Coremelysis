@@ -15,28 +15,12 @@ protocol MainViewModelDelegate: AnyObject {
 final class MainViewModel {
 
     weak var delegate: MainViewModelDelegate?
-    private let mlManager: MLManager
-
-    init(mlManager: MLManager) {
-        self.mlManager = mlManager
-    }
 
     func analyze(_ paragraph: String) -> String {
-        let score = mlManager.analyze(paragraph)
-
-        switch score {
-        case -1 ... -0.5:
-            return Sentiment.awful.rawValue
-        case ..<0:
-            return Sentiment.bad.rawValue
-        case 0:
-            return Sentiment.neutral.rawValue
-        case ..<0.5:
-            return Sentiment.good.rawValue
-        case ...1:
-            return Sentiment.great.rawValue
-        default:
+        guard let score = MLManager.analyze(paragraph) else {
             return Sentiment.notFound.rawValue
         }
+
+        return Sentiment.of(score).rawValue
     }
 }

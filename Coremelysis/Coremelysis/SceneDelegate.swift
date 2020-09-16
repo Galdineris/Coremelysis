@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        let mainVC = MainViewController(viewModel: MainViewModel(mlManager: MLManager()))
+        let mainVC = MainViewController(viewModel: MainViewModel())
         let mainNavController = UINavigationController(rootViewController: mainVC)
         let settingsVC = SettingsViewController(viewModel: SettingsViewModel())
         let settingsNavController = UINavigationController(rootViewController: settingsVC)
