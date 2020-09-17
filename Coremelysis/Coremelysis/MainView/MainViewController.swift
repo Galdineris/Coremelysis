@@ -10,12 +10,21 @@ import UIKit
 
 /// The representation of the main screen of the app.
 final class MainViewController: UIViewController {
+// - MARK: Properties
+
+    /// The label containing a brief description of the app.
     @AutoLayout var infoLabel: UILabel
+    /// The user's input to be analyzed.
     @AutoLayout var contentTextField: UITextField
+    /// The button responsible for calling the analysis.
     @AutoLayout var analyzeButton: UIButton
+    /// The label containing the result of the analysis.
     @AutoLayout var resultLabel: UILabel
 
+    /// This type ViewModel.
     private let viewModel: MainViewModel
+
+// - MARK: Init
 
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -26,6 +35,7 @@ final class MainViewController: UIViewController {
         fatalError("Fatal Error: ViewController should not be deserialized.")
     }
 
+// - MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
@@ -37,6 +47,9 @@ final class MainViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
+// - MARK: Layout
+
+    /// Bundles all necessary UI related functions to setup the initial interface.
     private func setupUI() {
         setupInfoLabel()
         setupContentTextField()
@@ -44,6 +57,7 @@ final class MainViewController: UIViewController {
         setupResultLabel()
     }
 
+    /// Configures the label containing a brief description of the app.
     private func setupInfoLabel() {
         infoLabel.text = """
         Write bellow what you want the app to analyze.
@@ -54,12 +68,14 @@ final class MainViewController: UIViewController {
         infoLabel.textColor = .coremelysisAccent
     }
 
+    /// Configures the UITextField responsible for the user's input.
     private func setupContentTextField() {
         contentTextField.placeholder = "Add here the content to be analyzed"
         contentTextField.font = .preferredFont(forTextStyle: .headline)
         contentTextField.textColor = .coremelysisAccent
     }
 
+    /// Configures the UIButton responsible for calling the analysis.
     private func setupAnalyzeButton() {
         analyzeButton.setTitle("Analyze", for: .normal)
         analyzeButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
@@ -68,6 +84,7 @@ final class MainViewController: UIViewController {
         analyzeButton.backgroundColor = .coremelysisAccent
     }
 
+    /// Configures the label containing the result of the analysis.
     private func setupResultLabel() {
         resultLabel.text = ""
         resultLabel.font = .preferredFont(forTextStyle: .headline)
@@ -75,6 +92,7 @@ final class MainViewController: UIViewController {
         resultLabel.textColor = .coremelysisBackground
     }
 
+    /// Configures all the necessary constraints and layouts all the views.
     private func setupLayout() {
         view.addSubview(infoLabel)
         view.addSubview(contentTextField)
@@ -107,6 +125,7 @@ final class MainViewController: UIViewController {
         ])
     }
 
+    /// Requests an analysis to the ViewModel.
     @objc private func analyze() {
         resultLabel.text = viewModel.analyze(contentTextField.text ?? "")
     }
