@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// The representation of the main screen of the app.
 final class MainViewController: UIViewController {
     @AutoLayout var infoLabel: UILabel
     @AutoLayout var contentTextField: UITextField
@@ -28,8 +29,8 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        setupUI()
         setupLayout()
+        setupUI()
 
         title = "Coremelysis"
 
@@ -50,34 +51,36 @@ final class MainViewController: UIViewController {
         """
         infoLabel.font = .preferredFont(forTextStyle: .body)
         infoLabel.numberOfLines = 0
-
-        view.addSubview(infoLabel)
+        infoLabel.textColor = .coremelysisAccent
     }
 
     private func setupContentTextField() {
         contentTextField.placeholder = "Add here the content to be analyzed"
         contentTextField.font = .preferredFont(forTextStyle: .headline)
-
-        view.addSubview(contentTextField)
+        contentTextField.textColor = .coremelysisAccent
     }
 
     private func setupAnalyzeButton() {
         analyzeButton.setTitle("Analyze", for: .normal)
         analyzeButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
-        analyzeButton.setTitleColor(.black, for: .normal)
+        analyzeButton.setTitleColor(.coremelysisBackground, for: .normal)
         analyzeButton.addTarget(self, action: #selector(analyze), for: .touchUpInside)
-
-        view.addSubview(analyzeButton)
+        analyzeButton.backgroundColor = .coremelysisAccent
     }
 
     private func setupResultLabel() {
         resultLabel.text = ""
         resultLabel.font = .preferredFont(forTextStyle: .headline)
-
-        view.addSubview(resultLabel)
+        resultLabel.backgroundColor = .coremelysisPositive
+        resultLabel.textColor = .coremelysisBackground
     }
 
     private func setupLayout() {
+        view.addSubview(infoLabel)
+        view.addSubview(contentTextField)
+        view.addSubview(analyzeButton)
+        view.addSubview(resultLabel)
+
         let safeAreaLayoutGuides = self.view.safeAreaLayoutGuide
         let layoutMarginsGuide = self.view.layoutMarginsGuide
 
@@ -96,6 +99,7 @@ final class MainViewController: UIViewController {
                                                constant: LayoutSpec.Spacing.default),
             analyzeButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
             analyzeButton.heightAnchor.constraint(equalToConstant: LayoutSpec.Button.height),
+            analyzeButton.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
             resultLabel.topAnchor.constraint(equalTo: analyzeButton.bottomAnchor,
                                              constant: LayoutSpec.Spacing.default),
