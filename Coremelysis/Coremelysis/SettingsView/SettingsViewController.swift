@@ -33,8 +33,8 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-        setupConstraints()
         setupTableView()
+        setupConstraints()
 
         title = "Settings"
 

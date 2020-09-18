@@ -34,8 +34,6 @@ final class HistoryViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-
-
         title = "History"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -44,8 +42,8 @@ final class HistoryViewController: UIViewController {
     /// Configures the main view.
     private func setupView() {
         view.backgroundColor = .systemBackground
-        view.addSubview(historyTableView)
         view.addSubview(summaryView)
+        view.addSubview(historyTableView)
     }
 
     /// Layouts constraints.
@@ -55,14 +53,12 @@ final class HistoryViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             summaryView.widthAnchor.constraint(equalTo: guides.widthAnchor),
-            summaryView.centerXAnchor.constraint(equalTo: guides.centerXAnchor),
             summaryView.topAnchor.constraint(equalTo: guides.topAnchor),
             summaryView.heightAnchor.constraint(equalTo: guides.heightAnchor, multiplier: 0.3),
 
             historyTableView.topAnchor.constraint(equalTo: summaryView.bottomAnchor),
             historyTableView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
-            historyTableView.widthAnchor.constraint(equalTo: guides.widthAnchor),
-            historyTableView.centerXAnchor.constraint(equalTo: guides.centerXAnchor)
+            historyTableView.widthAnchor.constraint(equalTo: guides.widthAnchor)
         ])
     }
 }
