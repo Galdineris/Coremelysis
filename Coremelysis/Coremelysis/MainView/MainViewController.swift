@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// The representation of the main screen of the app.
+/// The representation of the Main screen of the app.
 final class MainViewController: UIViewController {
 // - MARK: Properties
 
@@ -21,7 +21,7 @@ final class MainViewController: UIViewController {
     /// The label containing the result of the analysis.
     @AutoLayout var resultLabel: UILabel
 
-    /// This type ViewModel.
+    /// The ViewModel of this type.
     private let viewModel: MainViewModel
 
 // - MARK: Init

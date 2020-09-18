@@ -5,16 +5,21 @@
 //  Created by Rafael Galdino on 26/08/20.
 //  Copyright © 2020 Rafael Galdino. All rights reserved.
 //
-
-import Foundation
 import UIKit
 
+/// The representation of the History screen of the app.
 final class HistoryViewController: UIViewController {
+// - MARK: Properties
+
+    /// The history displayed in a UITableView format.
     @AutoLayout private var historyTableView: UITableView
+    /// The summary of all analysis.
     @AutoLayout private var summaryView: UIView
 
+    /// The ViewModel of this type.
     private let viewModel: HistoryViewModel
 
+// - MARK: Init
     init(viewModel: HistoryViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -24,19 +29,27 @@ final class HistoryViewController: UIViewController {
         fatalError("Fatal Error: ViewController should not be deserialized.")
     }
 
+// - MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        setupView()
+        setupConstraints()
+
 
         title = "History"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    private func setupLayout() {
+    /// Configures the main view.
+    private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(historyTableView)
         view.addSubview(summaryView)
+    }
+
+    /// Layouts constraints.
+    private func setupConstraints() {
 
         let guides = view.safeAreaLayoutGuide
 
