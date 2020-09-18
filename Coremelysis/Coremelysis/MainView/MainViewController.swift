@@ -47,6 +47,24 @@ final class MainViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
+// - MARK: UI updates
+
+    /// Updates the result label with the result of an analysis.
+    private func updateResultLabel(using text: String) {
+        let sentiment = viewModel.analyze(text)
+        switch sentiment {
+        case .awful, .bad:
+            resultLabel.text = sentiment.rawValue
+            resultLabel.backgroundColor = .coremelysisNegative
+        case .neutral, .notFound:
+            resultLabel.text = sentiment.rawValue
+            resultLabel.backgroundColor = .coremelysisNeutral
+        case .good, .great:
+            resultLabel.text = sentiment.rawValue
+            resultLabel.backgroundColor = .coremelysisPositive
+        }
+    }
+
 // - MARK: Layout
 
     /// Bundles all necessary UI related functions to setup the initial interface.
@@ -88,8 +106,9 @@ final class MainViewController: UIViewController {
     private func setupResultLabel() {
         resultLabel.text = ""
         resultLabel.font = .preferredFont(forTextStyle: .headline)
-        resultLabel.backgroundColor = .coremelysisPositive
+        resultLabel.backgroundColor = .clear
         resultLabel.textColor = .coremelysisBackground
+        resultLabel.textAlignment = .center
     }
 
     /// Configures all the necessary constraints and layouts all the views.
@@ -113,20 +132,24 @@ final class MainViewController: UIViewController {
             contentTextField.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
             contentTextField.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
-            analyzeButton.topAnchor.constraint(equalTo: contentTextField.bottomAnchor,
-                                               constant: LayoutSpec.Spacing.default),
+            analyzeButton.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor,
+                                               constant: -(LayoutSpec.Spacing.default)),
             analyzeButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
             analyzeButton.heightAnchor.constraint(equalToConstant: LayoutSpec.Button.height),
             analyzeButton.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
-            resultLabel.topAnchor.constraint(equalTo: analyzeButton.bottomAnchor,
+            resultLabel.topAnchor.constraint(equalTo: contentTextField.bottomAnchor,
                                              constant: LayoutSpec.Spacing.default),
-            resultLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor)
+            resultLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
+            resultLabel.heightAnchor.constraint(equalToConstant: LayoutSpec.Button.height),
+            resultLabel.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor)
         ])
     }
 
-    /// Requests an analysis to the ViewModel.
+    /// Requests an analysis.
     @objc private func analyze() {
-        resultLabel.text = viewModel.analyze(contentTextField.text ?? "")
+        if let content = resultLabel.text {
+            updateResultLabel(using: content)
+        }
     }
 }

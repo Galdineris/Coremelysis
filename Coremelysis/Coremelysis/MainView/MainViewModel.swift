@@ -21,22 +21,22 @@ final class MainViewModel {
         self.mlManager = mlManager
     }
 
-    func analyze(_ paragraph: String) -> String {
+    func analyze(_ paragraph: String) -> Sentiment {
         let score = mlManager.analyze(paragraph)
 
         switch score {
         case -1 ... -0.5:
-            return Sentiment.awful.rawValue
+            return Sentiment.awful
         case ..<0:
-            return Sentiment.bad.rawValue
+            return Sentiment.bad
         case 0:
-            return Sentiment.neutral.rawValue
+            return Sentiment.neutral
         case ..<0.5:
-            return Sentiment.good.rawValue
+            return Sentiment.good
         case ...1:
-            return Sentiment.great.rawValue
+            return Sentiment.great
         default:
-            return Sentiment.notFound.rawValue
+            return Sentiment.notFound
         }
     }
 }
