@@ -11,7 +11,6 @@ import UIKit
 /// The custom UITabBarController responsible for navigation.
 final class CoremelysisTabBarController: UITabBarController {
 // - MARK: Properties
-
     /// The main screen embeded in a UINavigationController.
     private let mainScreen: UINavigationController
     /// The settings screen embeded in a UINavigationController.

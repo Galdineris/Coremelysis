@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */; };
-		A480CF4D25110BDD0026586E /* LayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* LayoutSpec.swift */; };
+		A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */; };
+		A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* DesignSystem.swift */; };
 		A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41224F7F6A50085BC58 /* SettingsViewController.swift */; };
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
-		F214C92E24F6AFC600170DA8 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92D24F6AFC600170DA8 /* HistoryModel.swift */; };
+		F214C92E24F6AFC600170DA8 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */; };
 		F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */; };
 		F2625D7024E5FE5500ABBA88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */; };
 		F2625D7324E5FE5500ABBA88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7224E5FE5500ABBA88 /* Preview Assets.xcassets */; };
@@ -30,14 +31,15 @@
 
 /* Begin PBXFileReference section */
 		A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoremelysisTabBarController.swift; sourceTree = "<group>"; };
-		A480CF4C25110BDD0026586E /* LayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSpec.swift; sourceTree = "<group>"; };
+		A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		A480CF4C25110BDD0026586E /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		A486C41224F7F6A50085BC58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		F214C92D24F6AFC600170DA8 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
 		F2625D6624E5FE5000ABBA88 /* Coremelysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coremelysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A44EAC742517DFD20036EBA9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		A486C41124F7F68F0085BC58 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 			children = (
 				F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */,
 				F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */,
+				A44EAC742517DFD20036EBA9 /* Navigation */,
 				A486C41124F7F68F0085BC58 /* SettingsView */,
 				F271FC3124F6A8BD00011DD1 /* HistoryView */,
 				F271FC2B24F6A7F800011DD1 /* MainView */,
@@ -110,7 +121,6 @@
 				F271FC2E24F6A84B00011DD1 /* Property Wrappers */,
 				F271FC2C24F6A82A00011DD1 /* Resources */,
 				F2625D7124E5FE5500ABBA88 /* Preview Content */,
-				A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */,
 			);
 			path = Coremelysis;
 			sourceTree = "<group>";
@@ -147,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */,
-				A480CF4C25110BDD0026586E /* LayoutSpec.swift */,
+				A480CF4C25110BDD0026586E /* DesignSystem.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -164,8 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
+				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
 				F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */,
-				F214C92D24F6AFC600170DA8 /* HistoryModel.swift */,
+				F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */,
 			);
 			path = HistoryView;
 			sourceTree = "<group>";
@@ -274,12 +285,13 @@
 				F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */,
 				A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */,
 				F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */,
-				A480CF4D25110BDD0026586E /* LayoutSpec.swift in Sources */,
+				A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
 				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
-				F214C92E24F6AFC600170DA8 /* HistoryModel.swift in Sources */,
+				F214C92E24F6AFC600170DA8 /* HistoryEntry.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
+				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
 				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
 				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,

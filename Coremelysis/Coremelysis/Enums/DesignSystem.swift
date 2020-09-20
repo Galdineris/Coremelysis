@@ -1,5 +1,5 @@
 //
-//  LayoutSpec.swift
+//  DesignSystem.swift
 //  Coremelysis
 //
 //  Created by Artur Carneiro on 15/09/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum LayoutSpec {
+enum DesignSystem {
     enum Button {
         static let height: CGFloat = 50
     }
@@ -16,5 +16,12 @@ enum LayoutSpec {
     enum Spacing {
         static let `default`: CGFloat = 20
         static let fromNavigation: CGFloat = 50
+    }
+
+    enum TableView {
+        enum Rows {
+            static let estimatedRowHeight: CGFloat = 44
+            static let internalSpacing: CGFloat = 10
+        }
     }
 }

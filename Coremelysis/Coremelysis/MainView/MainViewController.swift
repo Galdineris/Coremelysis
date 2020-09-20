@@ -123,25 +123,25 @@ final class MainViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             infoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuides.topAnchor,
-                                           constant: LayoutSpec.Spacing.fromNavigation),
+                                           constant: DesignSystem.Spacing.fromNavigation),
             infoLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
             infoLabel.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
             contentTextField.topAnchor.constraint(equalTo: infoLabel.bottomAnchor,
-                                                  constant: LayoutSpec.Spacing.default),
+                                                  constant: DesignSystem.Spacing.default),
             contentTextField.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
             contentTextField.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
             analyzeButton.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor,
-                                               constant: -(LayoutSpec.Spacing.default)),
+                                               constant: -(DesignSystem.Spacing.default)),
             analyzeButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
-            analyzeButton.heightAnchor.constraint(equalToConstant: LayoutSpec.Button.height),
+            analyzeButton.heightAnchor.constraint(equalToConstant: DesignSystem.Button.height),
             analyzeButton.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
 
             resultLabel.topAnchor.constraint(equalTo: contentTextField.bottomAnchor,
-                                             constant: LayoutSpec.Spacing.default),
+                                             constant: DesignSystem.Spacing.default),
             resultLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuides.centerXAnchor),
-            resultLabel.heightAnchor.constraint(equalToConstant: LayoutSpec.Button.height),
+            resultLabel.heightAnchor.constraint(equalToConstant: DesignSystem.Button.height),
             resultLabel.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor)
         ])
     }
