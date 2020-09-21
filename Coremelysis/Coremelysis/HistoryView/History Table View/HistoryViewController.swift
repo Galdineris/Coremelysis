@@ -14,14 +14,15 @@ final class HistoryViewController: UIViewController {
     /// The history displayed in a UITableView format.
     @AutoLayout private var historyTableView: UITableView
     /// The summary of all analysis.
-    @AutoLayout private var summaryView: UIView
+    private var summaryViewController: HistorySummaryViewController
 
     /// The ViewModel of this type.
     private let viewModel: HistoryViewModel
 
 // - MARK: Init
-    init(viewModel: HistoryViewModel) {
+    init(viewModel: HistoryViewModel, summaryViewController: HistorySummaryViewController) {
         self.viewModel = viewModel
+        self.summaryViewController = summaryViewController
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
     }
@@ -45,7 +46,11 @@ final class HistoryViewController: UIViewController {
     /// Configures the main view.
     private func setupView() {
         view.backgroundColor = .systemBackground
-        view.addSubview(summaryView)
+        addChild(summaryViewController)
+        view.addSubview(summaryViewController.view)
+        summaryViewController.didMove(toParent: self)
+        summaryViewController.view.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(historyTableView)
     }
 
@@ -65,11 +70,11 @@ final class HistoryViewController: UIViewController {
         let guides = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            summaryView.widthAnchor.constraint(equalTo: guides.widthAnchor),
-            summaryView.topAnchor.constraint(equalTo: guides.topAnchor),
-            summaryView.heightAnchor.constraint(equalTo: guides.heightAnchor, multiplier: 0.3),
+            summaryViewController.view.widthAnchor.constraint(equalTo: guides.widthAnchor),
+            summaryViewController.view.topAnchor.constraint(equalTo: guides.topAnchor),
+            summaryViewController.view.heightAnchor.constraint(equalTo: guides.heightAnchor, multiplier: 0.3),
 
-            historyTableView.topAnchor.constraint(equalTo: summaryView.bottomAnchor),
+            historyTableView.topAnchor.constraint(equalTo: summaryViewController.view.bottomAnchor),
             historyTableView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
             historyTableView.widthAnchor.constraint(equalTo: guides.widthAnchor)
         ])
@@ -105,5 +110,6 @@ extension HistoryViewController: UITableViewDataSource {
 extension HistoryViewController: HistoryViewModelDelegate {
     func updateUI() {
         historyTableView.reloadData()
+        summaryViewController.update(with: <#T##HistorySummaryViewModel#>)
     }
 }

@@ -49,4 +49,11 @@ final class HistoryViewModel {
         return model[index].content
     }
 
+    func buildSummary() -> HistorySummaryViewModel {
+        return HistorySummaryViewModel(numberOfEntries: <#T##Int#>,
+                                       percentageOfPositiveEntries: <#T##Float#>,
+                                       percentageOfNegativeEntries: <#T##Float#>,
+                                       percentageOfNeutralEntries: <#T##Float#>)
+    }
+    
 }

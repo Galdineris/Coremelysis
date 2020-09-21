@@ -36,6 +36,7 @@ final class HistoryTableViewCell: UITableViewCell {
         contentLabel.text = content
         contentLabel.font = .preferredFont(forTextStyle: .headline)
         contentLabel.textColor = .coremelysisAccent
+        contentLabel.numberOfLines = 2
 
         sentimentLabel.text = sentiment.rawValue
         sentimentLabel.textColor = .coremelysisBackground

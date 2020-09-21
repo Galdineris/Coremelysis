@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         let mainVC = MainViewController(viewModel: MainViewModel(mlManager: MLManager()))
         let settingsVC = SettingsViewController(viewModel: SettingsViewModel())
-        let historyVC = HistoryViewController(viewModel: HistoryViewModel())
+        let historyVC = HistoryViewController(viewModel: HistoryViewModel(), summaryViewController: HistorySummaryViewController())
         let tabBarController = CoremelysisTabBarController(mainViewController: mainVC,
                                                            settingsViewController: settingsVC,
                                                            historyViewController: historyVC)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */; };
+		A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */; };
 		A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */; };
 		A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */; };
 		A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* DesignSystem.swift */; };
@@ -23,13 +25,15 @@
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
 		F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */; };
-		F2B96B5E24E755C000AD118B /* AutoLayoutPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */; };
+		F2B96B5E24E755C000AD118B /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayout.swift */; };
 		F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
 		F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
 		F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewController.swift; sourceTree = "<group>"; };
+		A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewModel.swift; sourceTree = "<group>"; };
 		A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoremelysisTabBarController.swift; sourceTree = "<group>"; };
 		A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		A480CF4C25110BDD0026586E /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
@@ -50,7 +54,7 @@
 		F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
-		F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutPropertyWrapper.swift; sourceTree = "<group>"; };
+		F2B96B5D24E755C000AD118B /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		F2B99ED225091D5A0005D9B4 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +69,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A40C88C72518E68C001199C6 /* History Table View */ = {
+			isa = PBXGroup;
+			children = (
+				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
+				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
+			);
+			path = "History Table View";
+			sourceTree = "<group>";
+		};
+		A40C88C82518E69C001199C6 /* History Summary View */ = {
+			isa = PBXGroup;
+			children = (
+				A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */,
+				A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */,
+			);
+			path = "History Summary View";
+			sourceTree = "<group>";
+		};
 		A44EAC742517DFD20036EBA9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +187,7 @@
 		F271FC2E24F6A84B00011DD1 /* Property Wrappers */ = {
 			isa = PBXGroup;
 			children = (
-				F2B96B5D24E755C000AD118B /* AutoLayoutPropertyWrapper.swift */,
+				F2B96B5D24E755C000AD118B /* AutoLayout.swift */,
 			);
 			path = "Property Wrappers";
 			sourceTree = "<group>";
@@ -173,8 +195,8 @@
 		F271FC3124F6A8BD00011DD1 /* HistoryView */ = {
 			isa = PBXGroup;
 			children = (
-				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
-				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
+				A40C88C82518E69C001199C6 /* History Summary View */,
+				A40C88C72518E68C001199C6 /* History Table View */,
 				F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */,
 				F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */,
 			);
@@ -284,7 +306,9 @@
 			files = (
 				F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */,
 				A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */,
+				A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */,
 				F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */,
+				A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */,
 				A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
 				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
@@ -297,7 +321,7 @@
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
 				A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */,
-				F2B96B5E24E755C000AD118B /* AutoLayoutPropertyWrapper.swift in Sources */,
+				F2B96B5E24E755C000AD118B /* AutoLayout.swift in Sources */,
 				F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
