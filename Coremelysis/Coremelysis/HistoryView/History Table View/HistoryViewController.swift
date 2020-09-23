@@ -37,6 +37,7 @@ final class HistoryViewController: UIViewController {
         setupView()
         setupHistoryTableView()
         setupConstraints()
+
         title = "History"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -48,8 +49,10 @@ final class HistoryViewController: UIViewController {
         view.backgroundColor = .systemBackground
         addChild(summaryViewController)
         view.addSubview(summaryViewController.view)
+        
         summaryViewController.didMove(toParent: self)
         summaryViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        summaryViewController.update(with: viewModel.buildSummary())
 
         view.addSubview(historyTableView)
     }
@@ -67,16 +70,18 @@ final class HistoryViewController: UIViewController {
     /// Layouts constraints.
     private func setupConstraints() {
 
-        let guides = view.safeAreaLayoutGuide
+        let safeAreaGuides = view.safeAreaLayoutGuide
+        let layoutGuides = view.layoutMarginsGuide
 
         NSLayoutConstraint.activate([
-            summaryViewController.view.widthAnchor.constraint(equalTo: guides.widthAnchor),
-            summaryViewController.view.topAnchor.constraint(equalTo: guides.topAnchor),
-            summaryViewController.view.heightAnchor.constraint(equalTo: guides.heightAnchor, multiplier: 0.3),
+            summaryViewController.view.leftAnchor.constraint(equalTo: layoutGuides.leftAnchor),
+            summaryViewController.view.rightAnchor.constraint(equalTo: layoutGuides.rightAnchor),
+            summaryViewController.view.topAnchor.constraint(equalTo: layoutGuides.topAnchor),
+            summaryViewController.view.heightAnchor.constraint(equalTo: layoutGuides.heightAnchor, multiplier: 0.3),
 
             historyTableView.topAnchor.constraint(equalTo: summaryViewController.view.bottomAnchor),
-            historyTableView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
-            historyTableView.widthAnchor.constraint(equalTo: guides.widthAnchor)
+            historyTableView.bottomAnchor.constraint(equalTo: safeAreaGuides.bottomAnchor),
+            historyTableView.widthAnchor.constraint(equalTo: safeAreaGuides.widthAnchor)
         ])
     }
 }
@@ -102,7 +107,6 @@ extension HistoryViewController: UITableViewDataSource {
         let sentiment = viewModel.sentimentOfEntry(at: indexPath.row)
 
         cell.configure(withCreationDate: creationDate, content: content, sentiment: sentiment)
-        
         return cell
     }
 }
@@ -110,6 +114,6 @@ extension HistoryViewController: UITableViewDataSource {
 extension HistoryViewController: HistoryViewModelDelegate {
     func updateUI() {
         historyTableView.reloadData()
-        summaryViewController.update(with: <#T##HistorySummaryViewModel#>)
+        summaryViewController.update(with: viewModel.buildSummary())
     }
 }

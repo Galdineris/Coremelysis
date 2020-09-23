@@ -23,11 +23,29 @@ final class HistoryViewModel {
         }
     }
 
+    private var numberOfPositiveEntries: Int {
+        return model.filter {
+            $0.inference == .good || $0.inference == .great
+        }.count
+    }
+
+    private var numberOfNegativeEntries: Int {
+        return model.filter {
+            $0.inference == .awful || $0.inference == .bad
+        }.count
+    }
+
+    private var numberOfNeutralEntries: Int {
+        return model.filter {
+            $0.inference == .neutral || $0.inference == .notFound
+        }.count
+    }
+
     var numberOfEntries: Int {
         return model.count
     }
 
-    weak var delegate: HistoryViewModelDelegate?
+        weak var delegate: HistoryViewModelDelegate?
 
 // - MARK: Init
     init() {
@@ -50,10 +68,9 @@ final class HistoryViewModel {
     }
 
     func buildSummary() -> HistorySummaryViewModel {
-        return HistorySummaryViewModel(numberOfEntries: <#T##Int#>,
-                                       percentageOfPositiveEntries: <#T##Float#>,
-                                       percentageOfNegativeEntries: <#T##Float#>,
-                                       percentageOfNeutralEntries: <#T##Float#>)
+        return HistorySummaryViewModel(numberOfEntries: numberOfEntries,
+                                       numberOfPositiveEntries: numberOfPositiveEntries,
+                                       numberOfNegativeEntries: numberOfNegativeEntries,
+                                       numberOfNeutralEntries: numberOfNeutralEntries)
     }
-    
 }

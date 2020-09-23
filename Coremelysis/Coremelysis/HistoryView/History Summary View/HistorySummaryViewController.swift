@@ -11,9 +11,9 @@ import UIKit
 final class HistorySummaryViewController: UIViewController {
 
     @AutoLayout private var numberOfEntriesLabel: UILabel
-    @AutoLayout private var positiveEntriesView: UIView
-    @AutoLayout private var negativeEntriesView: UIView
-    @AutoLayout private var neutralEntriesView: UIView
+    @AutoLayout private var positiveEntriesLabel: UILabel
+    @AutoLayout private var negativeEntriesLabel: UILabel
+    @AutoLayout private var neutralEntriesLabel: UILabel
 
     private var viewModel: HistorySummaryViewModel
 
@@ -29,58 +29,76 @@ final class HistorySummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNumberOfEntriesLabel()
-        setupEntriesViews()
+        setupEntriesLabels()
         layoutConstraints()
     }
 
     func update(with viewModel: HistorySummaryViewModel) {
         self.viewModel = viewModel
+        self.numberOfEntriesLabel.text = viewModel.numberOfEntries
+        self.positiveEntriesLabel.text = viewModel.numberOfPositiveEntries
+        self.negativeEntriesLabel.text = viewModel.numberOfNegativeEntries
+        self.neutralEntriesLabel.text = viewModel.numberOfNeutralEntries
     }
 
     private func setupNumberOfEntriesLabel() {
         numberOfEntriesLabel.text = viewModel.numberOfEntries
-        numberOfEntriesLabel.font = .preferredFont(forTextStyle: .headline)
+        numberOfEntriesLabel.font = .preferredFont(forTextStyle: .title1)
         numberOfEntriesLabel.numberOfLines = 0
         numberOfEntriesLabel.textColor = .coremelysisAccent
+        numberOfEntriesLabel.textAlignment = .center
 
         view.addSubview(numberOfEntriesLabel)
     }
 
-    private func setupEntriesViews() {
-        positiveEntriesView.backgroundColor = .coremelysisPositive
-        negativeEntriesView.backgroundColor = .coremelysisNegative
-        neutralEntriesView.backgroundColor = .coremelysisNeutral
+    private func setupEntriesLabels() {
+        positiveEntriesLabel.textColor = .coremelysisPositive
+        negativeEntriesLabel.textColor = .coremelysisNegative
+        neutralEntriesLabel.textColor = .coremelysisNeutral
 
-        view.addSubview(positiveEntriesView)
-        view.addSubview(negativeEntriesView)
-        view.addSubview(neutralEntriesView)
+        positiveEntriesLabel.font = .preferredFont(forTextStyle: .headline)
+        negativeEntriesLabel.font = .preferredFont(forTextStyle: .headline)
+        neutralEntriesLabel.font = .preferredFont(forTextStyle: .headline)
+
+        positiveEntriesLabel.text = viewModel.numberOfPositiveEntries
+        negativeEntriesLabel.text = viewModel.numberOfNegativeEntries
+        neutralEntriesLabel.text = viewModel.numberOfNeutralEntries
+
+        positiveEntriesLabel.textAlignment = .center
+        negativeEntriesLabel.textAlignment = .center
+        neutralEntriesLabel.textAlignment = .center
+
+        view.addSubview(positiveEntriesLabel)
+        view.addSubview(negativeEntriesLabel)
+        view.addSubview(neutralEntriesLabel)
     }
 
     private func layoutConstraints() {
         NSLayoutConstraint.activate([
             numberOfEntriesLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            numberOfEntriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            numberOfEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            numberOfEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.45),
+            numberOfEntriesLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
+            numberOfEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
+            numberOfEntriesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            positiveEntriesView.topAnchor.constraint(equalTo: view.topAnchor),
-            positiveEntriesView.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                       multiplier: CGFloat(viewModel.percentageOfPositiveEntries)),
-            positiveEntriesView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            positiveEntriesView.trailingAnchor.constraint(equalTo: negativeEntriesView.leadingAnchor),
+            positiveEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor,
+                                                      constant: DesignSystem.Spacing.default),
+            positiveEntriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            positiveEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            positiveEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
 
-            negativeEntriesView.topAnchor.constraint(equalTo: view.topAnchor),
-            negativeEntriesView.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                       multiplier: CGFloat(viewModel.percentageOfNegativeEntries)),
-            negativeEntriesView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            negativeEntriesView.trailingAnchor.constraint(equalTo: neutralEntriesView.leadingAnchor),
+            negativeEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor,
+                                                      constant: DesignSystem.Spacing.default),
+            negativeEntriesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            negativeEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            negativeEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
+                                                        multiplier: 0.3),
 
-            neutralEntriesView.topAnchor.constraint(equalTo: view.topAnchor),
-            neutralEntriesView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            neutralEntriesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            neutralEntriesView.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                      multiplier: CGFloat(viewModel.percentageOfNeutralEntries))
-
+            neutralEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor,
+                                                     constant: DesignSystem.Spacing.default),
+            neutralEntriesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            neutralEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            neutralEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
+                                                       multiplier: 0.3)
         ])
     }
 

@@ -10,24 +10,17 @@ import Foundation
 
 struct HistorySummaryViewModel {
     let numberOfEntries: String
-    let percentageOfPositiveEntries: Float
-    let percentageOfNegativeEntries: Float
-    let percentageOfNeutralEntries: Float
+    let numberOfPositiveEntries: String
+    let numberOfNegativeEntries: String
+    let numberOfNeutralEntries: String
 
-    init(numberOfEntries: Int,
-         percentageOfPositiveEntries: Float,
-         percentageOfNegativeEntries: Float,
-         percentageOfNeutralEntries: Float) {
+    init(numberOfEntries: Int = 0,
+         numberOfPositiveEntries: Int = 0,
+         numberOfNegativeEntries: Int = 0,
+         numberOfNeutralEntries: Int = 0) {
         self.numberOfEntries = "\(numberOfEntries) entries"
-        self.percentageOfPositiveEntries = percentageOfPositiveEntries / 2
-        self.percentageOfNegativeEntries = percentageOfNegativeEntries / 2
-        self.percentageOfNeutralEntries = percentageOfNeutralEntries / 2
-    }
-
-    init() {
-        self.numberOfEntries = ""
-        self.percentageOfPositiveEntries = 0
-        self.percentageOfNeutralEntries = 0
-        self.percentageOfNegativeEntries = 0
+        self.numberOfPositiveEntries = "\(numberOfPositiveEntries)"
+        self.numberOfNegativeEntries = "\(numberOfNegativeEntries)"
+        self.numberOfNeutralEntries = "\(numberOfNeutralEntries)"
     }
 }
