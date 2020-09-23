@@ -29,6 +29,8 @@
 		F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
 		F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
 		F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
+		F2D418342511A51B00474DBC /* MachineLearningError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418332511A51B00474DBC /* MachineLearningError.swift */; };
+		F2D418362511BAC000474DBC /* SentimentAnalysisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
 		F2B96B5D24E755C000AD118B /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		F2B99ED225091D5A0005D9B4 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
+		F2D418332511A51B00474DBC /* MachineLearningError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningError.swift; sourceTree = "<group>"; };
+		F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentAnalysisModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 			children = (
 				A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */,
 				A480CF4C25110BDD0026586E /* DesignSystem.swift */,
+				F2D418332511A51B00474DBC /* MachineLearningError.swift */,
+				F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -313,10 +319,12 @@
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
 				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
 				F214C92E24F6AFC600170DA8 /* HistoryEntry.swift in Sources */,
+				F2D418362511BAC000474DBC /* SentimentAnalysisModel.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
 				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
+				F2D418342511A51B00474DBC /* MachineLearningError.swift in Sources */,
 				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
