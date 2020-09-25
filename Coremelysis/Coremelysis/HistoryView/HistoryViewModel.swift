@@ -45,7 +45,7 @@ final class HistoryViewModel {
         return model.count
     }
 
-        weak var delegate: HistoryViewModelDelegate?
+    weak var delegate: HistoryViewModelDelegate?
 
 // - MARK: Init
     init() {

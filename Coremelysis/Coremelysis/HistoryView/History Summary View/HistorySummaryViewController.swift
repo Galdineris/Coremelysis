@@ -8,15 +8,19 @@
 
 import UIKit
 
+/// The representation of the History screen summary
 final class HistorySummaryViewController: UIViewController {
 
+    // - MARK: Properties
     @AutoLayout private var numberOfEntriesLabel: UILabel
     @AutoLayout private var positiveEntriesLabel: UILabel
     @AutoLayout private var negativeEntriesLabel: UILabel
     @AutoLayout private var neutralEntriesLabel: UILabel
 
+    /// The ViewModel bound to this type.
     private var viewModel: HistorySummaryViewModel
 
+    // - MARK: Init
     init(viewModel: HistorySummaryViewModel = HistorySummaryViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +30,7 @@ final class HistorySummaryViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // - MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNumberOfEntriesLabel()
@@ -33,6 +38,7 @@ final class HistorySummaryViewController: UIViewController {
         layoutConstraints()
     }
 
+    // - MARK: Update
     func update(with viewModel: HistorySummaryViewModel) {
         self.viewModel = viewModel
         self.numberOfEntriesLabel.text = viewModel.numberOfEntries
@@ -41,6 +47,7 @@ final class HistorySummaryViewController: UIViewController {
         self.neutralEntriesLabel.text = viewModel.numberOfNeutralEntries
     }
 
+    // - MARK: Layout
     private func setupNumberOfEntriesLabel() {
         numberOfEntriesLabel.text = viewModel.numberOfEntries
         numberOfEntriesLabel.font = .preferredFont(forTextStyle: .title1)

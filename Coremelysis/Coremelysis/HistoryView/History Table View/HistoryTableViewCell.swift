@@ -8,16 +8,19 @@
 
 import UIKit
 
+/// The representation of the History screen cell.
 final class HistoryTableViewCell: UITableViewCell {
-
+    // - MARK: Properties
     @AutoLayout private var creationDateLabel: UILabel
     @AutoLayout private var contentLabel: UILabel
     @AutoLayout private var sentimentLabel: UILabel
 
+    /// The reusableIdentifier of the cell.
     static var identifier: String {
         return String(describing: self)
     }
 
+    // - MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layoutConstraints()
@@ -28,6 +31,7 @@ final class HistoryTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // - MARK: Configuration
     func configure(withCreationDate date: String, content: String, sentiment: Sentiment) {
         creationDateLabel.text = date
         creationDateLabel.font = .preferredFont(forTextStyle: .body)
@@ -54,6 +58,7 @@ final class HistoryTableViewCell: UITableViewCell {
         }
     }
 
+    // - MARK: Layout
     private func layoutConstraints() {
         contentView.addSubview(creationDateLabel)
         contentView.addSubview(contentLabel)
