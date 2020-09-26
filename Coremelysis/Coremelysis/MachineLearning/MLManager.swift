@@ -17,7 +17,8 @@ final class MLManager {
 // MARK: Exposed Methods
     ///Gives the predicted sentiment value of a given paragraph. Throws errors.
     ///
-    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage) framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
+    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage)
+    ///framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
     /// - Parameters:
     ///     - paragraph: Body of text used in the inference. Should be at least one sentence long.
     static func analyze(_ paragraph: String) throws -> Double {
@@ -26,7 +27,8 @@ final class MLManager {
 
     ///Gives the predicted sentiment value of a given paragraph. Can return nil.
     ///
-    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage) framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
+    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage)
+    ///framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
     /// - Parameters:
     ///     - paragraph: Body of text used in the inference. Should be at least one sentence long.
     static func analyze(_ paragraph: String) -> Double? {
@@ -61,7 +63,8 @@ final class MLManager {
 // MARK: Inference Methods
     ///Uses Natural Language framework to give the predicted sentiment value of a string.
     ///
-    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage) framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
+    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage)
+    ///framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
     /// - Parameters:
     ///     - data: Body of text used in the inference. Should be at least one sentence long.
     private static func inferWithNL(_ data: String) throws -> Double {

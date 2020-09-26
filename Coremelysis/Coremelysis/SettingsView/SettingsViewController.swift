@@ -8,11 +8,17 @@
 
 import UIKit
 
+/// The representation of the Settings screen of the app.
 final class SettingsViewController: UIViewController {
+// - MARK: Properties
+
+    /// The available settings displayed in a UITableView format.
     @AutoLayout private var settingsTableView: UITableView
 
+    /// The ViewModel of this type.
     private let viewModel: SettingsViewModel
 
+// - MARK: Init
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -22,22 +28,22 @@ final class SettingsViewController: UIViewController {
         fatalError("Fatal Error: ViewController should not be deserialized.")
     }
 
+// - MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
 
-        setupLayout()
         setupTableView()
+        setupConstraints()
 
         title = "Settings"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    private func setupLayout() {
-        view.backgroundColor = .systemBackground
-
-        view.addSubview(settingsTableView)
-
+// - MARK: Layout
+    /// Layouts constraints.
+    private func setupConstraints() {
         let guide = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
@@ -48,6 +54,7 @@ final class SettingsViewController: UIViewController {
         ])
     }
 
+    /// Configures the UITableView used in this screen.
     private func setupTableView() {
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
@@ -57,13 +64,17 @@ final class SettingsViewController: UIViewController {
         settingsTableView.isScrollEnabled = false
 
         settingsTableView.tableFooterView = UIView()
+
+        view.addSubview(settingsTableView)
     }
 }
 
+// - MARK: UITableViewDelegate
 extension SettingsViewController: UITableViewDelegate {
 
 }
 
+// - MARK: UITableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {

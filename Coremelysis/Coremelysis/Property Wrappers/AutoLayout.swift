@@ -1,5 +1,5 @@
 //
-//  AutoLayoutPropertyWrapper.swift
+//  AutoLayout.swift
 //  Coremelysis
 //
 //  Created by Rafael Galdino on 14/08/20.
@@ -14,6 +14,7 @@ import UIKit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
     var wrappedValue: View {
         return view
     }

@@ -16,11 +16,11 @@ final class MainViewModel {
 
     weak var delegate: MainViewModelDelegate?
 
-    func analyze(_ paragraph: String) -> String {
+    func analyze(_ paragraph: String) -> Sentiment {
         guard let score = MLManager.analyze(paragraph) else {
-            return Sentiment.notFound.rawValue
+            return Sentiment.notFound
         }
 
-        return Sentiment.of(score).rawValue
+        return Sentiment.of(score)
     }
 }
