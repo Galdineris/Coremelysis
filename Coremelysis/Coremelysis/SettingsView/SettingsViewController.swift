@@ -39,6 +39,7 @@ final class SettingsViewController: UIViewController {
         gitHubCell.textLabel?.text = "GitHub"
         gitHubCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
         gitHubCell.accessoryType = .disclosureIndicator
+
         let licenses = UITableViewCell(style: .default, reuseIdentifier: nil)
         licenses.textLabel?.text = "Licenses"
         licenses.textLabel?.font = .preferredFont(forTextStyle: .headline)
@@ -48,6 +49,9 @@ final class SettingsViewController: UIViewController {
 
         return [machineLearningSection, aboutSection]
     }()
+
+    /// Currently selected cell in the `Machine Learning` section.
+    private lazy var selectedMachineLearningCell: UITableViewCell = self.settingsCellArr[0][0]
 
     /// The ViewModel of this type.
     private let viewModel: SettingsViewModel
@@ -63,16 +67,33 @@ final class SettingsViewController: UIViewController {
     }
 
 // - MARK: Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         view.backgroundColor = .systemBackground
-
-        setupTableView()
-        setupConstraints()
 
         title = "Settings"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+        setupConstraints()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        switch viewModel.selectedModel {
+        case .default:
+            selectedMachineLearningCell = settingsCellArr[0][0]
+            selectedMachineLearningCell.accessoryType = .checkmark
+        case .sentimentPolarity:
+            selectedMachineLearningCell = settingsCellArr[0][1]
+            selectedMachineLearningCell.accessoryType = .checkmark
+        case .customModel:
+            break
+        }
     }
 
 // - MARK: Layout
@@ -105,10 +126,19 @@ final class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if settingsCellArr[indexPath.section][indexPath.row].accessoryType == .checkmark {
-                settingsCellArr[indexPath.section][indexPath.row].accessoryType = .none
-            } else {
-                settingsCellArr[indexPath.section][indexPath.row].accessoryType = .checkmark
+            let section = settingsCellArr[indexPath.section]
+            if section[indexPath.row] !== selectedMachineLearningCell {
+                selectedMachineLearningCell.accessoryType = .none
+                section[indexPath.row].accessoryType = .checkmark
+                selectedMachineLearningCell = section[indexPath.row]
+                switch indexPath.row {
+                case 0:
+                    viewModel.selectedModel = .default
+                case 1:
+                    viewModel.selectedModel = .sentimentPolarity
+                default:
+                    break
+                }
             }
         }
     }
@@ -118,7 +148,7 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return settingsCellArr.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -133,14 +163,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 2
-        case 1:
-            return 2
-        default:
-            return 0
-        }
+        return settingsCellArr[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
