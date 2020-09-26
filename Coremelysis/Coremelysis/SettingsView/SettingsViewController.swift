@@ -13,7 +13,41 @@ final class SettingsViewController: UIViewController {
 // - MARK: Properties
 
     /// The available settings displayed in a UITableView format.
-    @AutoLayout private var settingsTableView: UITableView
+    private lazy var settingsTableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+
+    private lazy var settingsCellArr: [[UITableViewCell]] = {
+        let coreMLCell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        coreMLCell.textLabel?.text = "CoreML"
+        coreMLCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        coreMLCell.tintColor = .coremelysisAccent
+        coreMLCell.detailTextLabel?.text = "Sentiment analysis using CoreML(NLP) default model."
+
+        let sentimentPolariyCell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        sentimentPolariyCell.textLabel?.text = "Sentiment Polarity model"
+        sentimentPolariyCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        sentimentPolariyCell.tintColor = .coremelysisAccent
+        /// Add the correct source and from which python library the model was converted from.
+        sentimentPolariyCell.detailTextLabel?.text = "CoreML model converted from Python by [SOURCE]"
+
+        let machineLearningSection = [coreMLCell, sentimentPolariyCell]
+
+        let gitHubCell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        gitHubCell.textLabel?.text = "GitHub"
+        gitHubCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        gitHubCell.accessoryType = .disclosureIndicator
+        let licenses = UITableViewCell(style: .default, reuseIdentifier: nil)
+        licenses.textLabel?.text = "Licenses"
+        licenses.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        licenses.accessoryType = .disclosureIndicator
+
+        let aboutSection = [gitHubCell, licenses]
+
+        return [machineLearningSection, aboutSection]
+    }()
 
     /// The ViewModel of this type.
     private let viewModel: SettingsViewModel
@@ -63,15 +97,21 @@ final class SettingsViewController: UIViewController {
 
         settingsTableView.isScrollEnabled = false
 
-        settingsTableView.tableFooterView = UIView()
-
         view.addSubview(settingsTableView)
     }
 }
 
 // - MARK: UITableViewDelegate
 extension SettingsViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if settingsCellArr[indexPath.section][indexPath.row].accessoryType == .checkmark {
+                settingsCellArr[indexPath.section][indexPath.row].accessoryType = .none
+            } else {
+                settingsCellArr[indexPath.section][indexPath.row].accessoryType = .checkmark
+            }
+        }
+    }
 }
 
 // - MARK: UITableViewDataSource
@@ -84,13 +124,11 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Primeira"
+            return "Machine Learning"
         case 1:
-            return "Segunda"
-        case 2:
-            return "Terceira"
+            return "About"
         default:
-            return "ZERO"
+            return nil
         }
     }
 
@@ -100,16 +138,12 @@ extension SettingsViewController: UITableViewDataSource {
             return 2
         case 1:
             return 2
-        case 2:
-            return 3
         default:
             return 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = "Teste"
-        return cell
+        return settingsCellArr[indexPath.section][indexPath.row]
     }
 }

@@ -91,6 +91,15 @@
 			path = "History Summary View";
 			sourceTree = "<group>";
 		};
+		A44AEA14251FD20E00352E21 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */,
+				F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		A44EAC742517DFD20036EBA9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +144,7 @@
 		F2625D6824E5FE5000ABBA88 /* Coremelysis */ = {
 			isa = PBXGroup;
 			children = (
-				F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */,
-				F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */,
+				A44AEA14251FD20E00352E21 /* App */,
 				A44EAC742517DFD20036EBA9 /* Navigation */,
 				A486C41124F7F68F0085BC58 /* SettingsView */,
 				F271FC3124F6A8BD00011DD1 /* HistoryView */,

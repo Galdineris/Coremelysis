@@ -50,7 +50,7 @@ final class HistorySummaryViewController: UIViewController {
     // - MARK: Layout
     private func setupNumberOfEntriesLabel() {
         numberOfEntriesLabel.text = viewModel.numberOfEntries
-        numberOfEntriesLabel.font = .preferredFont(forTextStyle: .title1)
+        numberOfEntriesLabel.font = .preferredFont(forTextStyle: .largeTitle)
         numberOfEntriesLabel.numberOfLines = 0
         numberOfEntriesLabel.textColor = .coremelysisAccent
         numberOfEntriesLabel.textAlignment = .center
@@ -59,13 +59,17 @@ final class HistorySummaryViewController: UIViewController {
     }
 
     private func setupEntriesLabels() {
-        positiveEntriesLabel.textColor = .coremelysisPositive
-        negativeEntriesLabel.textColor = .coremelysisNegative
-        neutralEntriesLabel.textColor = .coremelysisNeutral
+        positiveEntriesLabel.backgroundColor = .coremelysisPositive
+        negativeEntriesLabel.backgroundColor = .coremelysisNegative
+        neutralEntriesLabel.backgroundColor = .coremelysisNeutral
 
-        positiveEntriesLabel.font = .preferredFont(forTextStyle: .headline)
-        negativeEntriesLabel.font = .preferredFont(forTextStyle: .headline)
-        neutralEntriesLabel.font = .preferredFont(forTextStyle: .headline)
+        positiveEntriesLabel.font = .preferredFont(forTextStyle: .title1)
+        negativeEntriesLabel.font = .preferredFont(forTextStyle: .title1)
+        neutralEntriesLabel.font = .preferredFont(forTextStyle: .title1)
+
+        positiveEntriesLabel.textColor = .coremelysisBackground
+        negativeEntriesLabel.textColor = .coremelysisBackground
+        neutralEntriesLabel.textColor = .coremelysisBackground
 
         positiveEntriesLabel.text = viewModel.numberOfPositiveEntries
         negativeEntriesLabel.text = viewModel.numberOfNegativeEntries
@@ -87,25 +91,25 @@ final class HistorySummaryViewController: UIViewController {
             numberOfEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
             numberOfEntriesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            positiveEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor,
-                                                      constant: DesignSystem.Spacing.default),
+            positiveEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor),
             positiveEntriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            positiveEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            positiveEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
+            positiveEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                         constant: -DesignSystem.Spacing.default),
+            positiveEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.34),
 
-            negativeEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor,
-                                                      constant: DesignSystem.Spacing.default),
-            negativeEntriesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            negativeEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            negativeEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                        multiplier: 0.3),
-
-            neutralEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor,
-                                                     constant: DesignSystem.Spacing.default),
-            neutralEntriesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            neutralEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            neutralEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor),
+            neutralEntriesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            neutralEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                constant: -DesignSystem.Spacing.default),
             neutralEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                       multiplier: 0.3)
+                                                        multiplier: 0.34),
+
+            negativeEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor),
+            negativeEntriesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            negativeEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                         constant: -DesignSystem.Spacing.default ),
+            negativeEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
+                                                       multiplier: 0.33)
         ])
     }
 
