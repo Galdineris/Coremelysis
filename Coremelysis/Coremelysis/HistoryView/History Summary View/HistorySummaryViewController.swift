@@ -95,21 +95,19 @@ final class HistorySummaryViewController: UIViewController {
             positiveEntriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             positiveEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                                          constant: -DesignSystem.Spacing.default),
-            positiveEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.34),
+            positiveEntriesLabel.trailingAnchor.constraint(equalTo: neutralEntriesLabel.leadingAnchor),
 
             neutralEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor),
             neutralEntriesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             neutralEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                 constant: -DesignSystem.Spacing.default),
-            neutralEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                        multiplier: 0.34),
+            neutralEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.34),
 
             negativeEntriesLabel.topAnchor.constraint(equalTo: numberOfEntriesLabel.bottomAnchor),
             negativeEntriesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             negativeEntriesLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                                          constant: -DesignSystem.Spacing.default ),
-            negativeEntriesLabel.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                       multiplier: 0.33)
+            negativeEntriesLabel.leadingAnchor.constraint(equalTo: neutralEntriesLabel.trailingAnchor)
         ])
     }
 
