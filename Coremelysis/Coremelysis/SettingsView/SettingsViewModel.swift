@@ -8,15 +8,18 @@
 
 import Foundation
 
-protocol SettingsViewModelDelegate: AnyObject {
-}
-
 final class SettingsViewModel {
-
+    // - MARK: Properties
+    
+    /// The current model straight from UserDefaults through the property wrapper.
+    /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
+    /// hardcoded/literal strings and values.
     @UserDefaultsAccess(key: UserDefaultsKeys.model.rawValue,
                         defaultValue: SentimentAnalysisModel.default.rawValue)
     private var currentModel: String
 
+    /// The currently selected model. It is used as a internal access to the UserDefaults key
+    /// in charge of keeping the current model value.
     var selectedModel: SentimentAnalysisModel {
         get {
             switch currentModel {
@@ -34,9 +37,7 @@ final class SettingsViewModel {
             currentModel = newValue.rawValue
         }
     }
-
-    weak var delegate: SettingsViewModelDelegate?
-
+    // - MARK: Init
     init() {
     }
 }
