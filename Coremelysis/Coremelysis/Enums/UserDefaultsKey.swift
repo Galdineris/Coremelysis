@@ -1,5 +1,5 @@
 //
-//  UserDefaultsKeys.swift
+//  UserDefaultsKey.swift
 //  Coremelysis
 //
 //  Created by Artur Carneiro on 26/09/20.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-enum UserDefaultsKeys: String {
+/// Type response for managing UserDefaults keys in a safe way.
+enum UserDefaultsKey: String {
     case model
 }

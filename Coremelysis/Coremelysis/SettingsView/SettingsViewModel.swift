@@ -14,7 +14,7 @@ final class SettingsViewModel {
     /// The current model straight from UserDefaults through the property wrapper.
     /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
     /// hardcoded/literal strings and values.
-    @UserDefaultsAccess(key: UserDefaultsKeys.model.rawValue,
+    @UserDefaultsAccess(key: UserDefaultsKey.model.rawValue,
                         defaultValue: SentimentAnalysisModel.default.rawValue)
     private var currentModel: String
 
@@ -37,6 +37,17 @@ final class SettingsViewModel {
             currentModel = newValue.rawValue
         }
     }
+
+    /// The URL to Coremelysis's GitHub repository.
+    var gitHubURL: URL? {
+        return URL(string: ExternalURL.gitHub.rawValue)
+    }
+
+    /// The URL to Coremelysis's license.
+    var licenseURL: URL? {
+        return URL(string: ExternalURL.license.rawValue)
+    }
+
     // - MARK: Init
     init() {
     }

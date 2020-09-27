@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 /// The representation of the Settings screen of the app.
 final class SettingsViewController: UIViewController {
@@ -141,6 +142,21 @@ extension SettingsViewController: UITableViewDelegate {
                     break
                 }
             }
+        } else {
+            switch indexPath.row {
+            case 0:
+                guard let chosenURL = viewModel.gitHubURL else {
+                    return
+                }
+                openURL(chosenURL)
+            case 1:
+                guard let chosenURL = viewModel.licenseURL else {
+                    return
+                }
+                openURL(chosenURL)
+            default:
+                return
+            }
         }
     }
 }
@@ -169,5 +185,19 @@ extension SettingsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return settingsCellArr[indexPath.section][indexPath.row]
+    }
+}
+
+// - MARK: SFSafariController
+extension SettingsViewController: SFSafariViewControllerDelegate {
+    fileprivate func openURL(_ url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.delegate = self
+
+        present(safariViewController, animated: true)
+    }
+
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        dismiss(animated: true, completion: nil)
     }
 }

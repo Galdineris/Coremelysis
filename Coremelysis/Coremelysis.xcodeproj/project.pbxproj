@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408593E2521235B003BC5CE /* ExternalURL.swift */; };
 		A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */; };
 		A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */; };
 		A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayout.swift */; };
 		A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44AEA16251FD72700352E21 /* UserDefaults.swift */; };
-		A44AEA19251FE8DF00352E21 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44AEA18251FE8DF00352E21 /* UserDefaultsKeys.swift */; };
+		A44AEA19251FE8DF00352E21 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */; };
 		A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */; };
 		A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */; };
 		A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* DesignSystem.swift */; };
@@ -36,10 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A408593E2521235B003BC5CE /* ExternalURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalURL.swift; sourceTree = "<group>"; };
 		A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewController.swift; sourceTree = "<group>"; };
 		A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewModel.swift; sourceTree = "<group>"; };
 		A44AEA16251FD72700352E21 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		A44AEA18251FE8DF00352E21 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoremelysisTabBarController.swift; sourceTree = "<group>"; };
 		A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		A480CF4C25110BDD0026586E /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
@@ -198,7 +200,8 @@
 				A480CF4C25110BDD0026586E /* DesignSystem.swift */,
 				F2D418332511A51B00474DBC /* MachineLearningError.swift */,
 				F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */,
-				A44AEA18251FE8DF00352E21 /* UserDefaultsKeys.swift */,
+				A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */,
+				A408593E2521235B003BC5CE /* ExternalURL.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -338,11 +341,12 @@
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
-				A44AEA19251FE8DF00352E21 /* UserDefaultsKeys.swift in Sources */,
+				A44AEA19251FE8DF00352E21 /* UserDefaultsKey.swift in Sources */,
 				A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */,
 				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
 				F2D418342511A51B00474DBC /* MachineLearningError.swift in Sources */,
 				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
+				A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
 				A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */,
