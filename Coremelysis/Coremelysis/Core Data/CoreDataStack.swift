@@ -19,16 +19,12 @@ final class CoreDataStack {
     /// `automaticallyMergesChangesFromParent` property as true.
     private lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.model)
-        let defaultURL = NSPersistentContainer.defaultDirectoryURL()
-        let persistentDescription = NSPersistentStoreDescription(url: defaultURL)
-
-        container.persistentStoreDescriptions = [persistentDescription]
-        container.viewContext.automaticallyMergesChangesFromParent = true
-
         container.loadPersistentStores { (_, error) in
             if let error = error {
                 fatalError("Failed to load persistent store")
             }
+
+            container.viewContext.automaticallyMergesChangesFromParent = true
         }
 
         return container
@@ -54,8 +50,8 @@ final class CoreDataStack {
                 try mainContext.save()
             } catch {
                 // - TODO: Handle error
-                print(error.localizedDescription)
             }
+        } else {
         }
     }
 }

@@ -33,3 +33,22 @@ enum Sentiment: String {
         }
     }
 }
+
+extension Sentiment {
+    static func match(_ inference: String) -> Sentiment {
+        switch inference {
+        case "Good":
+            return Sentiment.good
+        case "Great":
+            return Sentiment.great
+        case "Bad":
+            return Sentiment.bad
+        case "Awful":
+            return Sentiment.awful
+        case "Neutral":
+            return Sentiment.neutral
+        default:
+            return Sentiment.notFound
+        }
+    }
+}

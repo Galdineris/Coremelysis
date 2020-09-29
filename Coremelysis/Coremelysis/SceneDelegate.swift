@@ -15,9 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        let mainVC = MainViewController(viewModel: MainViewModel())
+        let coreDataStack = CoreDataStack()
+        let mainVC = MainViewController(viewModel: MainViewModel(coreDataStack: coreDataStack))
         let settingsVC = SettingsViewController(viewModel: SettingsViewModel())
-        let historyVC = HistoryViewController(viewModel: HistoryViewModel(),
+        let historyVC = HistoryViewController(viewModel: HistoryViewModel(coreDataStack: coreDataStack),
                                               summaryViewController: HistorySummaryViewController())
         let tabBarController = CoremelysisTabBarController(mainViewController: mainVC,
                                                            settingsViewController: settingsVC,

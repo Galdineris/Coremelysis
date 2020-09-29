@@ -17,6 +17,7 @@
 		A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* DesignSystem.swift */; };
 		A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41224F7F6A50085BC58 /* SettingsViewController.swift */; };
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
+		A4A8370E25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
@@ -47,6 +48,7 @@
 		A480CF4C25110BDD0026586E /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		A486C41224F7F6A50085BC58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -100,8 +102,8 @@
 		A40C88C72518E68C001199C6 /* History Table View */ = {
 			isa = PBXGroup;
 			children = (
-				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
-				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
+				A4A8370C25236B50004D3CBE /* ViewModels */,
+				A4A8370B25236B3D004D3CBE /* Views */,
 			);
 			path = "History Table View";
 			sourceTree = "<group>";
@@ -130,6 +132,24 @@
 				A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		A4A8370B25236B3D004D3CBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
+				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4A8370C25236B50004D3CBE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */,
+				A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A4F8B95A2513ADBA00DE006B /* Extensions */ = {
@@ -228,7 +248,6 @@
 			children = (
 				A40C88C82518E69C001199C6 /* History Summary View */,
 				A40C88C72518E68C001199C6 /* History Table View */,
-				F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */,
 				F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */,
 			);
 			path = HistoryView;
@@ -351,6 +370,7 @@
 				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
 				A408594925213882003BC5CE /* CoreDataStack.swift in Sources */,
+				A4A8370E25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift in Sources */,
 				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
 				F2D418342511A51B00474DBC /* MachineLearningError.swift in Sources */,
 				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
