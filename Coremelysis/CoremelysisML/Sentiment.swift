@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Sentiment: String {
+public enum Sentiment: String {
     case good = "Good"
     case great = "Great"
     case bad = "Bad"
@@ -16,7 +16,10 @@ enum Sentiment: String {
     case neutral = "Neutral"
     case notFound = "Sentiment not found"
 
-    static func of(_ value: Double) -> Sentiment {
+    public static func of(_ value: Double?) -> Sentiment {
+        guard let value = value else {
+            return Sentiment.notFound
+        }
         switch value {
         case -1 ... -0.5:
             return Sentiment.awful

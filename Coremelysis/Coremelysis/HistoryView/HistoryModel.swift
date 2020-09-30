@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoremelysisML
 
 struct HistoryModel {
     let entries: [HistoryEntry]
