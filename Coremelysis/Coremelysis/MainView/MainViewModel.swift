@@ -18,14 +18,14 @@ final class MainViewModel {
 
     weak var delegate: MainViewModelDelegate?
 
-    func analyze(_ paragraph: String) -> String {
+    func analyze(_ paragraph: String) -> Sentiment {
         donateAnalysisIntent(paragraph)
-        return Sentiment.of(MLManager.infer(paragraph)).rawValue
+        return Sentiment.of(MLManager.infer(paragraph))
     }
 
     private func donateAnalysisIntent(_ data: String, _ model: Model =  .naturalLanguage) {
         let intent =  MakeAnalysisIntent()
         intent.text = data
-        intent.model = model
+        intent.model = NSNumber(value: model.rawValue)
     }
 }
