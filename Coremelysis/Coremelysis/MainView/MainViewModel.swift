@@ -27,5 +27,7 @@ final class MainViewModel {
         let intent =  MakeAnalysisIntent()
         intent.text = data
         intent.model = NSNumber(value: model.rawValue)
+        let interaction = INInteraction(intent: intent, response: nil)
+        interaction.donate(completion: nil)
     }
 }

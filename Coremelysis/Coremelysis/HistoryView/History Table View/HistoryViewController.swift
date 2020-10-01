@@ -70,13 +70,12 @@ final class HistoryViewController: UIViewController {
     private func setupConstraints() {
 
         let safeAreaGuides = view.safeAreaLayoutGuide
-        let layoutGuides = view.layoutMarginsGuide
 
         NSLayoutConstraint.activate([
-            summaryViewController.view.leftAnchor.constraint(equalTo: layoutGuides.leftAnchor),
-            summaryViewController.view.rightAnchor.constraint(equalTo: layoutGuides.rightAnchor),
-            summaryViewController.view.topAnchor.constraint(equalTo: layoutGuides.topAnchor),
-            summaryViewController.view.heightAnchor.constraint(equalTo: layoutGuides.heightAnchor, multiplier: 0.3),
+            summaryViewController.view.leftAnchor.constraint(equalTo: safeAreaGuides.leftAnchor),
+            summaryViewController.view.rightAnchor.constraint(equalTo: safeAreaGuides.rightAnchor),
+            summaryViewController.view.topAnchor.constraint(equalTo: safeAreaGuides.topAnchor),
+            summaryViewController.view.heightAnchor.constraint(equalTo: safeAreaGuides.heightAnchor, multiplier: 0.3),
 
             historyTableView.topAnchor.constraint(equalTo: summaryViewController.view.bottomAnchor),
             historyTableView.bottomAnchor.constraint(equalTo: safeAreaGuides.bottomAnchor),

@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408593E2521235B003BC5CE /* ExternalURL.swift */; };
 		A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */; };
 		A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */; };
+		A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayout.swift */; };
+		A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44AEA16251FD72700352E21 /* UserDefaults.swift */; };
+		A44AEA19251FE8DF00352E21 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */; };
 		A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */; };
 		A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */; };
 		A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* DesignSystem.swift */; };
@@ -16,6 +20,8 @@
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
+		F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD792526280900E7C6A3 /* AppDelegate.swift */; };
+		F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
 		F23A6AE8251A4A6500A810CC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23A6AE7251A4A6500A810CC /* IntentHandler.swift */; };
 		F23A6AEC251A4A6500A810CC /* CoremelysisIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -32,14 +38,11 @@
 		F2625D7624E5FE5500ABBA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */; };
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
-		F2B96B5E24E755C000AD118B /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B96B5D24E755C000AD118B /* AutoLayout.swift */; };
-		F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
 		F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		F2E5B8992524D9E9006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
 		F2E5B8A02524DAAC006E3D6A /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
 		F2E5B8AC2524E088006E3D6A /* CoremelysisML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25FD189251FE67000EC470B /* CoremelysisML.framework */; };
 		F2F91A24252624330037AF67 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */; };
-		F2F91A27252624380037AF67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */; };
 		F2FFB627251E229E00070507 /* MakeAnalysisIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FFB626251E229E00070507 /* MakeAnalysisIntentHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,8 +96,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A408593E2521235B003BC5CE /* ExternalURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalURL.swift; sourceTree = "<group>"; };
 		A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewController.swift; sourceTree = "<group>"; };
 		A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewModel.swift; sourceTree = "<group>"; };
+		A44AEA16251FD72700352E21 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		A455C2E62514F4F80081B930 /* CoremelysisTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoremelysisTabBarController.swift; sourceTree = "<group>"; };
 		A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		A480CF4C25110BDD0026586E /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F203FD792526280900E7C6A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = shortcutIntents.intentdefinition; sourceTree = "<group>"; };
 		F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
@@ -115,8 +123,6 @@
 		F25FD18B251FE67000EC470B /* CoremelysisML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoremelysisML.h; sourceTree = "<group>"; };
 		F25FD18C251FE67000EC470B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2625D6624E5FE5000ABBA88 /* Coremelysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coremelysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2625D7224E5FE5500ABBA88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F2625D7524E5FE5500ABBA88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,6 +180,15 @@
 				A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */,
 			);
 			path = "History Summary View";
+			sourceTree = "<group>";
+		};
+		A44AEA14251FD20E00352E21 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F203FD792526280900E7C6A3 /* AppDelegate.swift */,
+				F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		A44EAC742517DFD20036EBA9 /* Navigation */ = {
@@ -252,8 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				F23A6AF2251A4B7200A810CC /* Coremelysis.entitlements */,
-				F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */,
-				F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */,
+				A44AEA14251FD20E00352E21 /* App */,
 				A44EAC742517DFD20036EBA9 /* Navigation */,
 				A486C41124F7F68F0085BC58 /* SettingsView */,
 				F271FC3124F6A8BD00011DD1 /* HistoryView */,
@@ -298,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				A480CF4C25110BDD0026586E /* DesignSystem.swift */,
+				A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */,
+				A408593E2521235B003BC5CE /* ExternalURL.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -306,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B96B5D24E755C000AD118B /* AutoLayout.swift */,
+				A44AEA16251FD72700352E21 /* UserDefaults.swift */,
 			);
 			path = "Property Wrappers";
 			sourceTree = "<group>";
@@ -517,22 +534,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2F91A27252624380037AF67 /* SceneDelegate.swift in Sources */,
 				F2F91A24252624330037AF67 /* HistoryEntry.swift in Sources */,
+				A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */,
+				F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */,
 				A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */,
 				A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */,
-				F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */,
 				A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */,
 				A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
 				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
+				A44AEA19251FE8DF00352E21 /* UserDefaultsKey.swift in Sources */,
+				A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */,
+				A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
+				F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
 				F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */,
 				A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */,
-				F2B96B5E24E755C000AD118B /* AutoLayout.swift in Sources */,
 				F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
