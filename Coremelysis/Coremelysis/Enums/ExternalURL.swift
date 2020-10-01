@@ -11,6 +11,6 @@ import Foundation
 /// Type responsible for managing external URLs, such as Coremelysis's GitHub repository and license.
 enum ExternalURL: String {
     case gitHub = "https://github.com/Galdineris/Coremelysis"
-    case sentimentPolarity = ""
+    case sentimentPolarity = "https://github.com/cocoa-ai/SentimentCoreMLDemo/blob/master/README.md#model"
     case license = "https://github.com/Galdineris/Coremelysis/blob/master/LICENSE"
 }
