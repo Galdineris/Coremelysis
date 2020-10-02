@@ -52,9 +52,9 @@ final class MLManager {
                 predictions[.default] = try inferWithSP(paragraph)
             case .sentimentPolarity:
                 predictions[.sentimentPolarity] = try inferWithSP(paragraph)
-            case .customModel(let url):
+            case .customModel:
 //                TODO: Custom Machine Learning algorithims support
-                predictions[.customModel(url: url)] = 0
+                break
             }
         }
         return predictions
