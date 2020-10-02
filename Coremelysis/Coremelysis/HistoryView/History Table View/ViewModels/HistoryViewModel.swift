@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import CoremelysisML
 
 protocol HistoryViewModelDelegate: AnyObject {
     func showError(_ error: HistoryViewModel.Error )

@@ -10,29 +10,64 @@ import Foundation
 import NaturalLanguage
 import CoreML
 
-/// Machine Learning class abstraction for making inferences.
+/// Machine Learning abstraction for making inferences.
 ///
-/// Should not be subclassed or instantiated.
-final class MLManager {
-// MARK: Exposed Methods
+public enum MLManager {
+    // MARK: Exposed Methods
+    public static func infer(_ text: String) -> Double? {
+        analyze(text, with: .default)
+    }
     ///Gives the predicted sentiment value of a given paragraph. Throws errors.
     ///
-    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage)
-    ///framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
+    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage) framework or another specified model
+    ///and it's return value ranges from -1 to 1, for negative and positive values, respectively.
     /// - Parameters:
-    ///     - paragraph: Body of text used in the inference. Should be at least one sentence long.
-    static func analyze(_ paragraph: String) throws -> Double {
-        try inferWithNL(paragraph)
+    ///     - text: Body of text used in the inference. Should be at least one sentence long.
+    ///     - model: Model used for the inference.
+     static func analyze(text: String, with model: SentimentAnalysisModel = .default) throws -> Double {
+        switch model {
+        case .sentimentPolarity:
+            return try inferWithSP(text)
+        case .default:
+            return try inferWithNL(text)
+        @unknown default:
+            throw MachineLearningError.noModelProvided
+        }
     }
 
     ///Gives the predicted sentiment value of a given paragraph. Can return nil.
     ///
-    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage)
-    ///framework and it's return value ranges from -1 to 1, for negative and positive values, respectively.
+    ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage) framework or another specified model
+    ///and it's return value ranges from -1 to 1, for negative and positive values, respectively.
     /// - Parameters:
     ///     - paragraph: Body of text used in the inference. Should be at least one sentence long.
-    static func analyze(_ paragraph: String) -> Double? {
-        try? inferWithNL(paragraph)
+    ///     - model: Model used for the inference.
+    static func analyze(_ paragraph: String, with model: SentimentAnalysisModel = .default) -> Double? {
+        return try? analyze(text: paragraph, with: model)
+    }
+
+    ///Gives the predicted sentiment values of a given paragraph.
+    ///
+    ///Performs inferences using multiple models. Prediction values are returned in dictionary form with the models names as the keys.
+    /// - Parameters:
+    ///     - text: Body of text used in the inference. Should be at least one sentence long.
+    ///     - models: Models to be used for inference.
+    static func analyze(text: String, with models: [SentimentAnalysisModel]) throws -> [SentimentAnalysisModel: Double] {
+        if models.isEmpty {
+            throw MachineLearningError.noModelProvided
+        }
+        var predictions = [SentimentAnalysisModel: Double]()
+        for model in models {
+            switch model {
+            case .default:
+                predictions[.default] = try inferWithSP(text)
+            case .sentimentPolarity:
+                predictions[.sentimentPolarity] = try inferWithSP(text)
+            case .customModel:
+                break
+            }
+        }
+        return predictions
     }
 
     ///Gives the predicted sentiment values of a given paragraph.
@@ -41,26 +76,11 @@ final class MLManager {
     /// - Parameters:
     ///     - paragraph: Body of text used in the inference. Should be at least one sentence long.
     ///     - models: Models to be used for inference.
-    static func analyze(_ paragraph: String, with models: [SentimentAnalysisModel]) throws -> [SentimentAnalysisModel: Double] {
-        if models.isEmpty {
-            throw MachineLearningError.noModelProvided
-        }
-        var predictions = [SentimentAnalysisModel: Double]()
-        for model in models {
-            switch model {
-            case .default:
-                predictions[.default] = try inferWithSP(paragraph)
-            case .sentimentPolarity:
-                predictions[.sentimentPolarity] = try inferWithSP(paragraph)
-            case .customModel:
-//                TODO: Custom Machine Learning algorithims support
-                break
-            }
-        }
-        return predictions
+    static func analyze(_ paragraph: String, with models: [SentimentAnalysisModel]) -> [SentimentAnalysisModel: Double]? {
+        return try? analyze(text: paragraph, with: models)
     }
 
-// MARK: Inference Methods
+    // MARK: Inference Methods
     ///Uses Natural Language framework to give the predicted sentiment value of a string.
     ///
     ///Performs sentiment analysis using Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage)
@@ -87,7 +107,7 @@ final class MLManager {
     /// - Parameters:
     ///     - data: Body of text used in the inference. Should be at least one sentence long.
     private static func inferWithSP(_ data: String) throws -> Double {
-        let spModel = SentimentPolarity()
+        let spModel = try SentimentPolarity(configuration: MLModelConfiguration())
         let tokens = extractFeatures(from: data)
 
         if tokens.isEmpty {
@@ -104,7 +124,7 @@ final class MLManager {
             return -score
         }
     }
-// MARK: Auxiliary Methods
+    // MARK: Auxiliary Methods
     ///Uses Apple's Natural Language framework to extract tokens from text data.
     ///
     ///It ignores punctuation, symbols and words with 3 or less characters.

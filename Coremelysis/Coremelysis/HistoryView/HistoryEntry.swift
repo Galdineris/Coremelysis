@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoremelysisML
 
 struct HistoryEntry {
     let creationDate: Date

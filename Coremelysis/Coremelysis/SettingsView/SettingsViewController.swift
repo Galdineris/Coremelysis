@@ -32,7 +32,7 @@ final class SettingsViewController: UIViewController {
         sentimentPolariyCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
         sentimentPolariyCell.tintColor = .coremelysisAccent
         /// Add the correct source and from which python library the model was converted from.
-        sentimentPolariyCell.detailTextLabel?.text = "CoreML model converted from Python by [SOURCE]"
+        sentimentPolariyCell.detailTextLabel?.text = "CoreML model converted by Vadym Markov"
 
         let machineLearningSection = [coreMLCell, sentimentPolariyCell]
 
@@ -85,7 +85,6 @@ final class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         switch viewModel.selectedModel {
         case .default:
             selectedMachineLearningCell = settingsCellArr[0][0]
