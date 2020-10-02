@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoremelysisML
 
 protocol HistoryViewModelDelegate: AnyObject {
     func updateUI()

@@ -20,21 +20,80 @@
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
+		F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD792526280900E7C6A3 /* AppDelegate.swift */; };
+		F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
-		F214C92E24F6AFC600170DA8 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */; };
-		F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */; };
+		F23A6AE8251A4A6500A810CC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23A6AE7251A4A6500A810CC /* IntentHandler.swift */; };
+		F23A6AEC251A4A6500A810CC /* CoremelysisIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F23A6AF1251A4AE400A810CC /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		F24FBE7B252043020034D608 /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F24FBE7A252043020034D608 /* SentimentPolarity.mlmodel */; };
+		F25FD18D251FE67000EC470B /* CoremelysisML.h in Headers */ = {isa = PBXBuildFile; fileRef = F25FD18B251FE67000EC470B /* CoremelysisML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F25FD190251FE67000EC470B /* CoremelysisML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25FD189251FE67000EC470B /* CoremelysisML.framework */; };
+		F25FD191251FE67000EC470B /* CoremelysisML.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F25FD189251FE67000EC470B /* CoremelysisML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F25FD19A251FE6EF00EC470B /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
+		F25FD19F251FE71B00EC470B /* SentimentAnalysisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */; };
+		F25FD1A0251FE71B00EC470B /* MachineLearningError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418332511A51B00474DBC /* MachineLearningError.swift */; };
 		F2625D7024E5FE5500ABBA88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */; };
 		F2625D7324E5FE5500ABBA88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7224E5FE5500ABBA88 /* Preview Assets.xcassets */; };
 		F2625D7624E5FE5500ABBA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */; };
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
-		F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */; };
-		F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
-		F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */; };
-		F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
-		F2D418342511A51B00474DBC /* MachineLearningError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418332511A51B00474DBC /* MachineLearningError.swift */; };
-		F2D418362511BAC000474DBC /* SentimentAnalysisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */; };
+		F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		F2E5B8992524D9E9006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
+		F2E5B8A02524DAAC006E3D6A /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
+		F2E5B8AC2524E088006E3D6A /* CoremelysisML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25FD189251FE67000EC470B /* CoremelysisML.framework */; };
+		F2F91A24252624330037AF67 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */; };
+		F2FFB627251E229E00070507 /* MakeAnalysisIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FFB626251E229E00070507 /* MakeAnalysisIntentHandler.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F23A6AEA251A4A6500A810CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2625D5E24E5FE5000ABBA88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F23A6AE4251A4A6500A810CC;
+			remoteInfo = CoremelysisIntents;
+		};
+		F25FD18E251FE67000EC470B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2625D5E24E5FE5000ABBA88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F25FD188251FE67000EC470B;
+			remoteInfo = CoremelysisML;
+		};
+		F2E5B8AE2524E088006E3D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2625D5E24E5FE5000ABBA88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F25FD188251FE67000EC470B;
+			remoteInfo = CoremelysisML;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F23A6AED251A4A6500A810CC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F23A6AEC251A4A6500A810CC /* CoremelysisIntents.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25FD192251FE67000EC470B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F25FD191251FE67000EC470B /* CoremelysisML.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A408593E2521235B003BC5CE /* ExternalURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalURL.swift; sourceTree = "<group>"; };
@@ -50,29 +109,55 @@
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F203FD792526280900E7C6A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = shortcutIntents.intentdefinition; sourceTree = "<group>"; };
 		F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
+		F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CoremelysisIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F23A6AE7251A4A6500A810CC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		F23A6AE9251A4A6500A810CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23A6AF2251A4B7200A810CC /* Coremelysis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coremelysis.entitlements; sourceTree = "<group>"; };
+		F24FBE7A252043020034D608 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
+		F25FD189251FE67000EC470B /* CoremelysisML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoremelysisML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F25FD18B251FE67000EC470B /* CoremelysisML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoremelysisML.h; sourceTree = "<group>"; };
+		F25FD18C251FE67000EC470B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2625D6624E5FE5000ABBA88 /* Coremelysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coremelysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2625D7224E5FE5500ABBA88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F2625D7524E5FE5500ABBA88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2625D7724E5FE5500ABBA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
+		F293A5D82524D6F00010FB91 /* CoremelysisIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoremelysisIntents.entitlements; sourceTree = "<group>"; };
 		F2B96B5D24E755C000AD118B /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		F2B99ED225091D5A0005D9B4 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
 		F2D418332511A51B00474DBC /* MachineLearningError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningError.swift; sourceTree = "<group>"; };
 		F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentAnalysisModel.swift; sourceTree = "<group>"; };
+		F2FFB626251E229E00070507 /* MakeAnalysisIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAnalysisIntentHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F23A6AE2251A4A6500A810CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E5B8AC2524E088006E3D6A /* CoremelysisML.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25FD186251FE67000EC470B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2625D6324E5FE5000ABBA88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25FD190251FE67000EC470B /* CoremelysisML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +185,8 @@
 		A44AEA14251FD20E00352E21 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F2625D6924E5FE5000ABBA88 /* AppDelegate.swift */,
-				F2625D6B24E5FE5000ABBA88 /* SceneDelegate.swift */,
+				F203FD792526280900E7C6A3 /* AppDelegate.swift */,
+				F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -131,11 +216,40 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F23A6AE6251A4A6500A810CC /* CoremelysisIntents */ = {
+			isa = PBXGroup;
+			children = (
+				F293A5D82524D6F00010FB91 /* CoremelysisIntents.entitlements */,
+				F23A6AE7251A4A6500A810CC /* IntentHandler.swift */,
+				F2FFB626251E229E00070507 /* MakeAnalysisIntentHandler.swift */,
+				F23A6AE9251A4A6500A810CC /* Info.plist */,
+			);
+			path = CoremelysisIntents;
+			sourceTree = "<group>";
+		};
+		F25FD18A251FE67000EC470B /* CoremelysisML */ = {
+			isa = PBXGroup;
+			children = (
+				F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */,
+				F2D418332511A51B00474DBC /* MachineLearningError.swift */,
+				A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */,
+				F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */,
+				F2B99ED225091D5A0005D9B4 /* MLManager.swift */,
+				F24FBE7A252043020034D608 /* SentimentPolarity.mlmodel */,
+				F25FD18B251FE67000EC470B /* CoremelysisML.h */,
+				F25FD18C251FE67000EC470B /* Info.plist */,
+			);
+			path = CoremelysisML;
+			sourceTree = "<group>";
+		};
 		F2625D5D24E5FE5000ABBA88 = {
 			isa = PBXGroup;
 			children = (
 				F2625D6824E5FE5000ABBA88 /* Coremelysis */,
+				F23A6AE6251A4A6500A810CC /* CoremelysisIntents */,
+				F25FD18A251FE67000EC470B /* CoremelysisML */,
 				F2625D6724E5FE5000ABBA88 /* Products */,
+				F2E5B8AB2524E088006E3D6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				F2625D6624E5FE5000ABBA88 /* Coremelysis.app */,
+				F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */,
+				F25FD189251FE67000EC470B /* CoremelysisML.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,12 +266,12 @@
 		F2625D6824E5FE5000ABBA88 /* Coremelysis */ = {
 			isa = PBXGroup;
 			children = (
+				F23A6AF2251A4B7200A810CC /* Coremelysis.entitlements */,
 				A44AEA14251FD20E00352E21 /* App */,
 				A44EAC742517DFD20036EBA9 /* Navigation */,
 				A486C41124F7F68F0085BC58 /* SettingsView */,
 				F271FC3124F6A8BD00011DD1 /* HistoryView */,
 				F271FC2B24F6A7F800011DD1 /* MainView */,
-				F2B99ED125091CFA0005D9B4 /* MachineLearning */,
 				A4F8B95A2513ADBA00DE006B /* Extensions */,
 				F271FC2D24F6A84400011DD1 /* Enums */,
 				F271FC2E24F6A84B00011DD1 /* Property Wrappers */,
@@ -188,7 +304,6 @@
 				F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */,
 				F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */,
 				F2625D7724E5FE5500ABBA88 /* Info.plist */,
-				F28AA119250BBCAE00C928A2 /* SentimentPolarity.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,10 +311,7 @@
 		F271FC2D24F6A84400011DD1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */,
 				A480CF4C25110BDD0026586E /* DesignSystem.swift */,
-				F2D418332511A51B00474DBC /* MachineLearningError.swift */,
-				F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */,
 				A44AEA18251FE8DF00352E21 /* UserDefaultsKey.swift */,
 				A408593E2521235B003BC5CE /* ExternalURL.swift */,
 			);
@@ -226,17 +338,63 @@
 			path = HistoryView;
 			sourceTree = "<group>";
 		};
-		F2B99ED125091CFA0005D9B4 /* MachineLearning */ = {
+		F2E5B8AB2524E088006E3D6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F2B99ED225091D5A0005D9B4 /* MLManager.swift */,
 			);
-			path = MachineLearning;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F25FD184251FE67000EC470B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F25FD18D251FE67000EC470B /* CoremelysisML.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		F23A6AE4251A4A6500A810CC /* CoremelysisIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F23A6AF0251A4A6500A810CC /* Build configuration list for PBXNativeTarget "CoremelysisIntents" */;
+			buildPhases = (
+				F23A6AE1251A4A6500A810CC /* Sources */,
+				F23A6AE2251A4A6500A810CC /* Frameworks */,
+				F23A6AE3251A4A6500A810CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2E5B8AF2524E088006E3D6A /* PBXTargetDependency */,
+			);
+			name = CoremelysisIntents;
+			productName = CoremelysisIntents;
+			productReference = F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F25FD188251FE67000EC470B /* CoremelysisML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F25FD195251FE67000EC470B /* Build configuration list for PBXNativeTarget "CoremelysisML" */;
+			buildPhases = (
+				F25FD184251FE67000EC470B /* Headers */,
+				F25FD185251FE67000EC470B /* Sources */,
+				F25FD186251FE67000EC470B /* Frameworks */,
+				F25FD187251FE67000EC470B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoremelysisML;
+			productName = CoremelysisML;
+			productReference = F25FD189251FE67000EC470B /* CoremelysisML.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		F2625D6524E5FE5000ABBA88 /* Coremelysis */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2625D7A24E5FE5500ABBA88 /* Build configuration list for PBXNativeTarget "Coremelysis" */;
@@ -245,10 +403,14 @@
 				F2625D6324E5FE5000ABBA88 /* Frameworks */,
 				F2625D6424E5FE5000ABBA88 /* Resources */,
 				F2B99ED62509211E0005D9B4 /* Run SwiftLint */,
+				F23A6AED251A4A6500A810CC /* Embed App Extensions */,
+				F25FD192251FE67000EC470B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F23A6AEB251A4A6500A810CC /* PBXTargetDependency */,
+				F25FD18F251FE67000EC470B /* PBXTargetDependency */,
 			);
 			name = Coremelysis;
 			productName = Coremelysis;
@@ -261,10 +423,16 @@
 		F2625D5E24E5FE5000ABBA88 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Rafael Galdino";
 				TargetAttributes = {
+					F23A6AE4251A4A6500A810CC = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					F25FD188251FE67000EC470B = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 					F2625D6524E5FE5000ABBA88 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -284,11 +452,27 @@
 			projectRoot = "";
 			targets = (
 				F2625D6524E5FE5000ABBA88 /* Coremelysis */,
+				F23A6AE4251A4A6500A810CC /* CoremelysisIntents */,
+				F25FD188251FE67000EC470B /* CoremelysisML */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F23A6AE3251A4A6500A810CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25FD187251FE67000EC470B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2625D6424E5FE5000ABBA88 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,38 +507,75 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F23A6AE1251A4A6500A810CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23A6AF1251A4AE400A810CC /* shortcutIntents.intentdefinition in Sources */,
+				F2FFB627251E229E00070507 /* MakeAnalysisIntentHandler.swift in Sources */,
+				F23A6AE8251A4A6500A810CC /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25FD185251FE67000EC470B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E5B8992524D9E9006E3D6A /* shortcutIntents.intentdefinition in Sources */,
+				F24FBE7B252043020034D608 /* SentimentPolarity.mlmodel in Sources */,
+				F25FD19A251FE6EF00EC470B /* MLManager.swift in Sources */,
+				F25FD1A0251FE71B00EC470B /* MachineLearningError.swift in Sources */,
+				F25FD19F251FE71B00EC470B /* SentimentAnalysisModel.swift in Sources */,
+				F2E5B8A02524DAAC006E3D6A /* Sentiment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2625D6224E5FE5000ABBA88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F91A24252624330037AF67 /* HistoryEntry.swift in Sources */,
 				A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */,
-				F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */,
+				F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */,
 				A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */,
 				A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */,
-				F2B99ED4250920430005D9B4 /* AppDelegate.swift in Sources */,
 				A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */,
 				A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
 				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
-				F214C92E24F6AFC600170DA8 /* HistoryEntry.swift in Sources */,
-				F2D418362511BAC000474DBC /* SentimentAnalysisModel.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
-				F2625D6C24E5FE5000ABBA88 /* SceneDelegate.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
 				A44AEA19251FE8DF00352E21 /* UserDefaultsKey.swift in Sources */,
 				A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */,
-				F28AA11A250BBCAE00C928A2 /* SentimentPolarity.mlmodel in Sources */,
-				F2D418342511A51B00474DBC /* MachineLearningError.swift in Sources */,
-				F2B99ED325091D5A0005D9B4 /* MLManager.swift in Sources */,
 				A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
+				F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
+				F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */,
 				A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */,
 				F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F23A6AEB251A4A6500A810CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F23A6AE4251A4A6500A810CC /* CoremelysisIntents */;
+			targetProxy = F23A6AEA251A4A6500A810CC /* PBXContainerItemProxy */;
+		};
+		F25FD18F251FE67000EC470B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F25FD188251FE67000EC470B /* CoremelysisML */;
+			targetProxy = F25FD18E251FE67000EC470B /* PBXContainerItemProxy */;
+		};
+		F2E5B8AF2524E088006E3D6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F25FD188251FE67000EC470B /* CoremelysisML */;
+			targetProxy = F2E5B8AE2524E088006E3D6A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */ = {
@@ -368,6 +589,110 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F23A6AEE251A4A6500A810CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CoremelysisIntents/CoremelysisIntents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RAZG7U3SR6;
+				INFOPLIST_FILE = CoremelysisIntents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.galdineris.Coremelysis.CoremelysisIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F23A6AEF251A4A6500A810CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CoremelysisIntents/CoremelysisIntents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L76X5KFZD9;
+				INFOPLIST_FILE = CoremelysisIntents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.galdineris.Coremelysis.CoremelysisIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F25FD193251FE67000EC470B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = RAZG7U3SR6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CoremelysisML/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.galdineris.CoremelysisML;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F25FD194251FE67000EC470B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L76X5KFZD9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CoremelysisML/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.galdineris.CoremelysisML;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F2625D7824E5FE5500ABBA88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,6 +719,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -454,6 +780,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -485,10 +812,12 @@
 		F2625D7B24E5FE5500ABBA88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coremelysis/Coremelysis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Coremelysis/Preview Content\"";
-				DEVELOPMENT_TEAM = L76X5KFZD9;
+				DEVELOPMENT_TEAM = RAZG7U3SR6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Coremelysis/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -506,7 +835,9 @@
 		F2625D7C24E5FE5500ABBA88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coremelysis/Coremelysis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Coremelysis/Preview Content\"";
 				DEVELOPMENT_TEAM = L76X5KFZD9;
@@ -527,6 +858,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F23A6AF0251A4A6500A810CC /* Build configuration list for PBXNativeTarget "CoremelysisIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F23A6AEE251A4A6500A810CC /* Debug */,
+				F23A6AEF251A4A6500A810CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F25FD195251FE67000EC470B /* Build configuration list for PBXNativeTarget "CoremelysisML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F25FD193251FE67000EC470B /* Debug */,
+				F25FD194251FE67000EC470B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F2625D6124E5FE5000ABBA88 /* Build configuration list for PBXProject "Coremelysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

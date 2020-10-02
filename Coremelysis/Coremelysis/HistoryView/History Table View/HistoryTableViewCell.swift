@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoremelysisML
 
 /// The representation of the History screen cell.
 final class HistoryTableViewCell: UITableViewCell {

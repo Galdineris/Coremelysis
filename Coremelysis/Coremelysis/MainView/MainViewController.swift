@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoremelysisML
 
 /// The representation of the Main screen of the app.
 final class MainViewController: UIViewController {

@@ -49,7 +49,6 @@ final class HistoryViewController: UIViewController {
         view.backgroundColor = .systemBackground
         addChild(summaryViewController)
         view.addSubview(summaryViewController.view)
-        
         summaryViewController.didMove(toParent: self)
         summaryViewController.view.translatesAutoresizingMaskIntoConstraints = false
         summaryViewController.update(with: viewModel.buildSummary())
@@ -95,7 +94,6 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfEntries
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier) as? HistoryTableViewCell else {
             return UITableViewCell()

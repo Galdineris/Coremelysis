@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import CoremelysisML
 
 final class SettingsViewModel {
     // - MARK: Properties
-    
     /// The current model straight from UserDefaults through the property wrapper.
     /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
     /// hardcoded/literal strings and values.

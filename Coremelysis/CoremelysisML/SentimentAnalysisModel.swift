@@ -9,7 +9,7 @@
 import Foundation
 
 /// Sentiment Analysis Model Identifiers
-enum SentimentAnalysisModel: String, Hashable {
+public enum SentimentAnalysisModel: String, Hashable {
     /// Apple's [Natural Language](https://developer.apple.com/documentation/naturallanguage) framework
     case `default`
 
