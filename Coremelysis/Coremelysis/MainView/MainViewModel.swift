@@ -24,9 +24,11 @@ final class MainViewModel {
         donateAnalysisIntent(paragraph)
         let sentiment = Sentiment.of(MLManager.infer(paragraph))
 
-        save(entry: HistoryEntry(creationDate: Date(),
-                                 inference: sentiment,
-                                 content: paragraph))
+        if sentiment != .notFound {
+            save(entry: HistoryEntry(creationDate: Date(),
+                                     inference: sentiment,
+                                     content: paragraph))
+        }
 
         return sentiment
     }
