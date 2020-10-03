@@ -16,11 +16,21 @@ protocol MainViewModelDelegate: AnyObject {
 
 final class MainViewModel {
 
+    private let coreDataStack: CoreDataStack
+
     weak var delegate: MainViewModelDelegate?
 
     func analyze(_ paragraph: String) -> Sentiment {
         donateAnalysisIntent(paragraph)
-        return Sentiment.of(MLManager.infer(paragraph))
+        let sentiment = Sentiment.of(MLManager.infer(paragraph))
+
+        if sentiment != .notFound {
+            save(entry: HistoryEntry(creationDate: Date(),
+                                     inference: sentiment,
+                                     content: paragraph))
+        }
+
+        return sentiment
     }
 
     private func donateAnalysisIntent(_ data: String, _ model: Model =  .naturalLanguage) {
@@ -29,5 +39,17 @@ final class MainViewModel {
         intent.model = NSNumber(value: model.rawValue)
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.donate(completion: nil)
+    }
+
+    private func save(entry: HistoryEntry) {
+        let cdEntry = Entry(context: coreDataStack.mainContext)
+        cdEntry.content = entry.content
+        cdEntry.inference = entry.inference.rawValue
+
+        coreDataStack.save()
+    }
+
+    init(coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
     }
 }

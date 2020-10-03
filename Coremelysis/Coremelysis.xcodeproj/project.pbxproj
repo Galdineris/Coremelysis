@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40859432521301C003BC5CE /* Coremelysis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A40859412521301C003BC5CE /* Coremelysis.xcdatamodeld */; };
+		A408594525213820003BC5CE /* Entry+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408594425213820003BC5CE /* Entry+Extension.swift */; };
+		A408594925213882003BC5CE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408594825213882003BC5CE /* CoreDataStack.swift */; };
 		A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408593E2521235B003BC5CE /* ExternalURL.swift */; };
 		A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */; };
 		A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */; };
@@ -18,6 +21,7 @@
 		A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A480CF4C25110BDD0026586E /* DesignSystem.swift */; };
 		A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41224F7F6A50085BC58 /* SettingsViewController.swift */; };
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
+		A4A8370E25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
 		F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD792526280900E7C6A3 /* AppDelegate.swift */; };
@@ -96,6 +100,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A40859422521301C003BC5CE /* CoremelysisModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoremelysisModel.xcdatamodel; sourceTree = "<group>"; };
+		A408594425213820003BC5CE /* Entry+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Extension.swift"; sourceTree = "<group>"; };
+		A408594825213882003BC5CE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		A408593E2521235B003BC5CE /* ExternalURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalURL.swift; sourceTree = "<group>"; };
 		A40C88C92518E6F2001199C6 /* HistorySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewController.swift; sourceTree = "<group>"; };
 		A40C88CB2518EE66001199C6 /* HistorySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +113,7 @@
 		A480CF4C25110BDD0026586E /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		A486C41224F7F6A50085BC58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -164,11 +172,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A408594025212FFF003BC5CE /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				A408594625213854003BC5CE /* Extensions */,
+				A40859412521301C003BC5CE /* Coremelysis.xcdatamodeld */,
+				A408594825213882003BC5CE /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		A408594625213854003BC5CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A408594425213820003BC5CE /* Entry+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A40C88C72518E68C001199C6 /* History Table View */ = {
 			isa = PBXGroup;
 			children = (
-				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
-				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
+				A4A8370C25236B50004D3CBE /* ViewModels */,
+				A4A8370B25236B3D004D3CBE /* Views */,
 			);
 			path = "History Table View";
 			sourceTree = "<group>";
@@ -206,6 +232,24 @@
 				A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		A4A8370B25236B3D004D3CBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A45E6E2E2517CF64003FB0C9 /* HistoryTableViewCell.swift */,
+				F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4A8370C25236B50004D3CBE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */,
+				A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A4F8B95A2513ADBA00DE006B /* Extensions */ = {
@@ -277,6 +321,7 @@
 				F271FC2E24F6A84B00011DD1 /* Property Wrappers */,
 				F271FC2C24F6A82A00011DD1 /* Resources */,
 				F2625D7124E5FE5500ABBA88 /* Preview Content */,
+				A408594025212FFF003BC5CE /* Core Data */,
 			);
 			path = Coremelysis;
 			sourceTree = "<group>";
@@ -332,7 +377,6 @@
 			children = (
 				A40C88C82518E69C001199C6 /* History Summary View */,
 				A40C88C72518E68C001199C6 /* History Table View */,
-				F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */,
 				F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */,
 			);
 			path = HistoryView;
@@ -536,6 +580,8 @@
 			files = (
 				F2F91A24252624330037AF67 /* HistoryEntry.swift in Sources */,
 				A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */,
+				F2B99ED5250920470005D9B4 /* Sentiment.swift in Sources */,
+				A40859432521301C003BC5CE /* Coremelysis.xcdatamodeld in Sources */,
 				F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */,
 				A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */,
 				A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */,
@@ -543,8 +589,13 @@
 				A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
 				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
+				F214C92E24F6AFC600170DA8 /* HistoryEntry.swift in Sources */,
+				F2D418362511BAC000474DBC /* SentimentAnalysisModel.swift in Sources */,
+				A408594525213820003BC5CE /* Entry+Extension.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
+				A408594925213882003BC5CE /* CoreDataStack.swift in Sources */,
+				A4A8370E25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift in Sources */,
 				A44AEA19251FE8DF00352E21 /* UserDefaultsKey.swift in Sources */,
 				A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */,
 				A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */,
@@ -895,6 +946,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A40859412521301C003BC5CE /* Coremelysis.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A40859422521301C003BC5CE /* CoremelysisModel.xcdatamodel */,
+			);
+			currentVersion = A40859422521301C003BC5CE /* CoremelysisModel.xcdatamodel */;
+			path = Coremelysis.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F2625D5E24E5FE5000ABBA88 /* Project object */;
 }

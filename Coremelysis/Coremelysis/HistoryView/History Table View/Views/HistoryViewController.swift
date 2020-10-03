@@ -64,6 +64,8 @@ final class HistoryViewController: UIViewController {
         historyTableView.rowHeight = UITableView.automaticDimension
         historyTableView.estimatedRowHeight = DesignSystem.TableView.Rows.estimatedRowHeight
         historyTableView.separatorStyle = .none
+
+        viewModel.fetchEntries()
     }
 
     /// Layouts constraints.
@@ -99,18 +101,29 @@ extension HistoryViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let creationDate = viewModel.creationDateOfEntry(at: indexPath.row)
-        let content = viewModel.contentOfEntry(at: indexPath.row)
-        let sentiment = viewModel.sentimentOfEntry(at: indexPath.row)
+        cell.configure(with: viewModel.viewModelAt(index: indexPath))
 
-        cell.configure(withCreationDate: creationDate, content: content, sentiment: sentiment)
         return cell
     }
 }
 
+// - MARK: HistoryViewModelDelegate
 extension HistoryViewController: HistoryViewModelDelegate {
-    func updateUI() {
-        historyTableView.reloadData()
+    func beginUpdate() {
+        historyTableView.beginUpdates()
+    }
+
+    func insertNewEntryAt(_ index: IndexPath) {
+        historyTableView.insertRows(at: [index], with: .automatic)
+    }
+
+    func endUpdate() {
+        historyTableView.endUpdates()
         summaryViewController.update(with: viewModel.buildSummary())
     }
+
+    func showError(_ error: HistoryViewModel.Error) {
+        // - TODO: Error handling
+    }
+
 }

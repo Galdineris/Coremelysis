@@ -33,23 +33,23 @@ final class HistoryTableViewCell: UITableViewCell {
     }
 
     // - MARK: Configuration
-    func configure(withCreationDate date: String, content: String, sentiment: Sentiment) {
-        creationDateLabel.text = date
+    func configure(with viewModel: HistoryTableViewCellViewModel) {
+        creationDateLabel.text = viewModel.date
         creationDateLabel.font = .preferredFont(forTextStyle: .body)
         creationDateLabel.textColor = .coremelysisAccent
 
-        contentLabel.text = content
+        contentLabel.text = viewModel.content
         contentLabel.font = .preferredFont(forTextStyle: .headline)
         contentLabel.textColor = .coremelysisAccent
-        contentLabel.numberOfLines = 2
+        contentLabel.numberOfLines = 0
 
-        sentimentLabel.text = sentiment.rawValue
+        sentimentLabel.text = viewModel.inference
         sentimentLabel.textColor = .coremelysisBackground
         sentimentLabel.font = .preferredFont(forTextStyle: .headline)
         sentimentLabel.numberOfLines = 2
         sentimentLabel.textAlignment = .center
 
-        switch sentiment {
+        switch Sentiment.match(viewModel.inference) {
         case .awful, .bad:
             sentimentLabel.backgroundColor = .coremelysisNegative
         case .neutral, .notFound:

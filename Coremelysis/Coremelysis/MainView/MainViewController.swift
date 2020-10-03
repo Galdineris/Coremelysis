@@ -42,7 +42,7 @@ final class MainViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         setupLayout()
         setupUI()
-
+        
         title = "Coremelysis"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -149,7 +149,7 @@ final class MainViewController: UIViewController {
 
     /// Requests an analysis.
     @objc private func analyze() {
-        if let content = resultLabel.text {
+        if let content = contentTextField.text {
             updateResultLabel(using: content)
         }
     }
