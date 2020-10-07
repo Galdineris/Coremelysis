@@ -68,7 +68,7 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>sFC3fy</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>19G2021</string>
+	<string>19H2</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>12A7300</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -89,7 +89,7 @@
 			<key>INIntentKeyParameter</key>
 			<string>text</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>4</integer>
+			<integer>5</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key>text,model</key>
@@ -190,13 +190,10 @@
 					<string>LjFwa3</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
-					<key>INIntentParameterMetadata</key>
-					<dict>
-						<key>INIntentParameterMetadataMaximumValue</key>
-						<integer>1</integer>
-						<key>INIntentParameterMetadataType</key>
-						<string>Field</string>
-					</dict>
+					<key>INIntentParameterEnumType</key>
+					<string>Model</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>sFC3fy</string>
 					<key>INIntentParameterName</key>
 					<string>model</string>
 					<key>INIntentParameterPromptDialogs</key>
@@ -209,7 +206,7 @@
 						</dict>
 					</array>
 					<key>INIntentParameterTag</key>
-					<integer>4</integer>
+					<integer>5</integer>
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
 				</dict>

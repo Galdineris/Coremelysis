@@ -43,6 +43,11 @@ final class HistoryViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        summaryViewController.update(with: viewModel.buildSummary())
+    }
+
 // - MARK: Layout
     /// Configures the main view.
     private func setupView() {

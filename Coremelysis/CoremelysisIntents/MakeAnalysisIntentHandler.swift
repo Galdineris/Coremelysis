@@ -12,8 +12,16 @@ import CoremelysisML
 class MakeAnalysisIntentHandler: NSObject, MakeAnalysisIntentHandling {
     func handle(intent: MakeAnalysisIntent, completion: @escaping (MakeAnalysisIntentResponse) -> Void) {
         if let text = intent.text, text != "" {
-            let inference = MLManager.infer(text)
-            completion(MakeAnalysisIntentResponse.success(sentiment: Sentiment.of(inference).rawValue))
+            if intent.model != Model.unknown {
+                var selectedModel: SentimentAnalysisModel = .default
+                if intent.model == Model.sentimentPolarity {
+                    selectedModel = .sentimentPolarity
+                }
+                let inference = MLManager.analyze(text, with: selectedModel)
+                completion(MakeAnalysisIntentResponse.success(sentiment: Sentiment.of(inference).rawValue))
+            } else {
+                completion(MakeAnalysisIntentResponse.failure(error: "Invalid Model"))
+            }
         } else {
             completion(MakeAnalysisIntentResponse.failure(error: "Invalid text"))
         }
