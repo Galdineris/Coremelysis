@@ -20,9 +20,26 @@ final class MainViewModel {
 
     weak var delegate: MainViewModelDelegate?
 
+    /// The current model straight from UserDefaults through the property wrapper.
+    /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
+    /// hardcoded/literal strings and values.
+    @UserDefaultsAccess(key: UserDefaultsKey.model.rawValue,
+                        defaultValue: SentimentAnalysisModel.default.rawValue)
+    private var currentModel: String
+
     func analyze(_ paragraph: String) -> Sentiment {
-        donateAnalysisIntent(paragraph)
-        let sentiment = Sentiment.of(MLManager.infer(paragraph))
+        var selectedModel: Model = .naturalLanguage
+        var modelForInference: SentimentAnalysisModel = .default
+        if currentModel == SentimentAnalysisModel.sentimentPolarity.rawValue {
+            selectedModel = .sentimentPolarity
+            modelForInference = .sentimentPolarity
+        }
+        donateAnalysisIntent(paragraph, selectedModel)
+        guard let inference = MLManager.analyze(paragraph, with: modelForInference) else {
+            return Sentiment.notFound
+        }
+
+        let sentiment = Sentiment.of(inference)
 
         if sentiment != .notFound {
             save(entry: HistoryEntry(creationDate: Date(),
@@ -36,7 +53,7 @@ final class MainViewModel {
     private func donateAnalysisIntent(_ data: String, _ model: Model =  .naturalLanguage) {
         let intent =  MakeAnalysisIntent()
         intent.text = data
-        intent.model = NSNumber(value: model.rawValue)
+        intent.model = model
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.donate(completion: nil)
     }

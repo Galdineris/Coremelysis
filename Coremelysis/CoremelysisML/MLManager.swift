@@ -42,7 +42,7 @@ public enum MLManager {
     /// - Parameters:
     ///     - paragraph: Body of text used in the inference. Should be at least one sentence long.
     ///     - model: Model used for the inference.
-    static func analyze(_ paragraph: String, with model: SentimentAnalysisModel = .default) -> Double? {
+    public static func analyze(_ paragraph: String, with model: SentimentAnalysisModel = .default) -> Double? {
         return try? analyze(text: paragraph, with: model)
     }
 
