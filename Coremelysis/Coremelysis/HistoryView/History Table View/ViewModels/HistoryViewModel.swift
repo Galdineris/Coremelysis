@@ -13,6 +13,7 @@ protocol HistoryViewModelDelegate: AnyObject {
     func showError(_ error: HistoryViewModel.Error )
     func beginUpdate()
     func insertNewEntryAt(_ index: IndexPath)
+    func deleteEntryAt(_ index: IndexPath)
     func endUpdate()
 }
 
@@ -119,6 +120,11 @@ final class HistoryViewModel: NSObject {
 
     }
 
+    func deleteEntryAt(_ index: IndexPath) {
+        let entry = fetchedResultsController.object(at: index)
+        coreDataStack.mainContext.delete(entry)
+    }
+
     func buildSummary() -> HistorySummaryViewModel {
         return HistorySummaryViewModel(numberOfEntries: numberOfEntries,
                                        numberOfPositiveEntries: numberOfPositiveEntries,
@@ -135,6 +141,13 @@ extension HistoryViewModel: NSFetchedResultsControllerDelegate {
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         delegate?.endUpdate()
+        if coreDataStack.mainContext.hasChanges {
+            do {
+                try coreDataStack.mainContext.save()
+            } catch {
+                // TODO: Error handling
+            }
+        }
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
@@ -146,6 +159,11 @@ extension HistoryViewModel: NSFetchedResultsControllerDelegate {
         case .insert:
             if let newIndexPath = newIndexPath {
                 delegate?.insertNewEntryAt(newIndexPath)
+                break
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                delegate?.deleteEntryAt(indexPath)
                 break
             }
         default:
