@@ -23,8 +23,9 @@ final class CoreDataStack {
         let sqliteURL = defaultURL.appendingPathComponent("\(self.model).sqlite")
         let newDescription = NSPersistentStoreDescription(url: sqliteURL)
 
-        newDescription.shouldAddStoreAsynchronously = true
+        newDescription.shouldAddStoreAsynchronously = false
         newDescription.shouldInferMappingModelAutomatically = true
+        newDescription.shouldMigrateStoreAutomatically = true
 
         container.persistentStoreDescriptions = [newDescription]
 
