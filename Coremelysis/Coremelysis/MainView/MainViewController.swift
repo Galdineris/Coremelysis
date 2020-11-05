@@ -73,6 +73,7 @@ final class MainViewController: UIViewController {
         setupContentTextField()
         setupAnalyzeButton()
         setupResultLabel()
+        hideKeyboardOnTap()
     }
 
     /// Configures the label containing a brief description of the app.

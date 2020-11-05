@@ -23,6 +23,7 @@
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
 		A4A8370E25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
+		A4CCA38625542F5A00965363 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CCA38525542F5A00965363 /* UIViewController.swift */; };
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
 		F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD792526280900E7C6A3 /* AppDelegate.swift */; };
 		F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */; };
@@ -116,6 +117,7 @@
 		A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
+		A4CCA38525542F5A00965363 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F203FD792526280900E7C6A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F8B95B2513ADD200DE006B /* UIColor.swift */,
+				A4CCA38525542F5A00965363 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */,
 				A40859432521301C003BC5CE /* Coremelysis.xcdatamodeld in Sources */,
 				F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */,
+				A4CCA38625542F5A00965363 /* UIViewController.swift in Sources */,
 				A455C2E72514F4F80081B930 /* CoremelysisTabBarController.swift in Sources */,
 				A40C88CA2518E6F2001199C6 /* HistorySummaryViewController.swift in Sources */,
 				A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */,
