@@ -93,7 +93,11 @@ final class HistoryViewController: UIViewController {
 
 // - MARK: UITableViewDelegate
 extension HistoryViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.deleteEntryAt(indexPath)
+        }
+    }
 }
 
 // - MARK: UITableViewDataSource
@@ -114,12 +118,16 @@ extension HistoryViewController: UITableViewDataSource {
 
 // - MARK: HistoryViewModelDelegate
 extension HistoryViewController: HistoryViewModelDelegate {
+    func deleteEntryAt(_ index: IndexPath) {
+        historyTableView.deleteRows(at: [index], with: .fade)
+    }
+
     func beginUpdate() {
         historyTableView.beginUpdates()
     }
 
     func insertNewEntryAt(_ index: IndexPath) {
-        historyTableView.insertRows(at: [index], with: .automatic)
+        historyTableView.insertRows(at: [index], with: .fade)
     }
 
     func endUpdate() {
