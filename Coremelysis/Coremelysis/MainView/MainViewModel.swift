@@ -24,18 +24,13 @@ final class MainViewModel {
     /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
     /// hardcoded/literal strings and values.
     @UserDefaultsAccess(key: UserDefaultsKey.model.rawValue,
-                        defaultValue: SentimentAnalysisModel.default.rawValue)
+                        defaultValue: SAModel.default.rawValue)
     private var currentModel: String
 
     func analyze(_ paragraph: String) -> Sentiment {
-        var selectedModel: Model = .naturalLanguage
-        var modelForInference: SentimentAnalysisModel = .default
-        if currentModel == SentimentAnalysisModel.sentimentPolarity.rawValue {
-            selectedModel = .sentimentPolarity
-            modelForInference = .sentimentPolarity
-        }
-        donateAnalysisIntent(paragraph, selectedModel)
-        guard let inference = MLManager.analyze(paragraph, with: modelForInference) else {
+        let model = SAModel.init(rawValue: currentModel) ?? .default
+        donateAnalysisIntent(paragraph, model)
+        guard let inference = try? model.infer(text: paragraph) else {
             return Sentiment.notFound
         }
 
@@ -50,10 +45,17 @@ final class MainViewModel {
         return sentiment
     }
 
-    private func donateAnalysisIntent(_ data: String, _ model: Model =  .naturalLanguage) {
+    private func donateAnalysisIntent(_ data: String, _ model: SAModel =  .default) {
         let intent =  MakeAnalysisIntent()
         intent.text = data
-        intent.model = model
+        switch model {
+        case .default:
+            intent.model = SiriModel.naturalLanguage
+        case .sentimentPolarity:
+            intent.model = SiriModel.sentimentPolarity
+        case .customModel:
+            intent.model = SiriModel.unknown
+        }
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.donate(completion: nil)
     }

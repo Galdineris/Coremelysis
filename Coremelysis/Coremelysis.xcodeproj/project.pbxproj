@@ -26,7 +26,9 @@
 		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
 		F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD792526280900E7C6A3 /* AppDelegate.swift */; };
 		F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */; };
+		F21345E92557991900C55882 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21345E82557991900C55882 /* FileManager+Extension.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
+		F217EB402550F6D600B0122F /* SAModel+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217EB3F2550F6D600B0122F /* SAModel+Methods.swift */; };
 		F23A6AE8251A4A6500A810CC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23A6AE7251A4A6500A810CC /* IntentHandler.swift */; };
 		F23A6AEC251A4A6500A810CC /* CoremelysisIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F23A6AF1251A4AE400A810CC /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
@@ -34,14 +36,14 @@
 		F25FD18D251FE67000EC470B /* CoremelysisML.h in Headers */ = {isa = PBXBuildFile; fileRef = F25FD18B251FE67000EC470B /* CoremelysisML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F25FD190251FE67000EC470B /* CoremelysisML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25FD189251FE67000EC470B /* CoremelysisML.framework */; };
 		F25FD191251FE67000EC470B /* CoremelysisML.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F25FD189251FE67000EC470B /* CoremelysisML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F25FD19A251FE6EF00EC470B /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* MLManager.swift */; };
-		F25FD19F251FE71B00EC470B /* SentimentAnalysisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */; };
-		F25FD1A0251FE71B00EC470B /* MachineLearningError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418332511A51B00474DBC /* MachineLearningError.swift */; };
+		F25FD19A251FE6EF00EC470B /* SAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B99ED225091D5A0005D9B4 /* SAModel.swift */; };
+		F25FD1A0251FE71B00EC470B /* SAModel+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D418332511A51B00474DBC /* SAModel+Errors.swift */; };
 		F2625D7024E5FE5500ABBA88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D6F24E5FE5500ABBA88 /* Assets.xcassets */; };
 		F2625D7324E5FE5500ABBA88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7224E5FE5500ABBA88 /* Preview Assets.xcassets */; };
 		F2625D7624E5FE5500ABBA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */; };
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
+		F2C1B289255A0B4A00EEB9DD /* CustomSAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1B288255A0B4A00EEB9DD /* CustomSAModel.swift */; };
 		F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		F2E5B8992524D9E9006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
 		F2E5B8A02524DAAC006E3D6A /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */; };
@@ -120,8 +122,10 @@
 		F203FD792526280900E7C6A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = shortcutIntents.intentdefinition; sourceTree = "<group>"; };
+		F21345E82557991900C55882 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
+		F217EB3F2550F6D600B0122F /* SAModel+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SAModel+Methods.swift"; sourceTree = "<group>"; };
 		F23A6AE5251A4A6500A810CC /* CoremelysisIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CoremelysisIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23A6AE7251A4A6500A810CC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		F23A6AE9251A4A6500A810CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,9 +143,9 @@
 		F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F293A5D82524D6F00010FB91 /* CoremelysisIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoremelysisIntents.entitlements; sourceTree = "<group>"; };
 		F2B96B5D24E755C000AD118B /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
-		F2B99ED225091D5A0005D9B4 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
-		F2D418332511A51B00474DBC /* MachineLearningError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningError.swift; sourceTree = "<group>"; };
-		F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentAnalysisModel.swift; sourceTree = "<group>"; };
+		F2B99ED225091D5A0005D9B4 /* SAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAModel.swift; sourceTree = "<group>"; };
+		F2C1B288255A0B4A00EEB9DD /* CustomSAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSAModel.swift; sourceTree = "<group>"; };
+		F2D418332511A51B00474DBC /* SAModel+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SAModel+Errors.swift"; sourceTree = "<group>"; };
 		F2FFB626251E229E00070507 /* MakeAnalysisIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAnalysisIntentHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,13 +264,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F217EB3A2550F5BF00B0122F /* SAModel */ = {
+			isa = PBXGroup;
+			children = (
+				F2C1B288255A0B4A00EEB9DD /* CustomSAModel.swift */,
+				F2B99ED225091D5A0005D9B4 /* SAModel.swift */,
+				F2D418332511A51B00474DBC /* SAModel+Errors.swift */,
+				F217EB3F2550F6D600B0122F /* SAModel+Methods.swift */,
+			);
+			path = SAModel;
+			sourceTree = "<group>";
+		};
 		F23A6AE6251A4A6500A810CC /* CoremelysisIntents */ = {
 			isa = PBXGroup;
 			children = (
 				F293A5D82524D6F00010FB91 /* CoremelysisIntents.entitlements */,
+				F23A6AE9251A4A6500A810CC /* Info.plist */,
 				F23A6AE7251A4A6500A810CC /* IntentHandler.swift */,
 				F2FFB626251E229E00070507 /* MakeAnalysisIntentHandler.swift */,
-				F23A6AE9251A4A6500A810CC /* Info.plist */,
 			);
 			path = CoremelysisIntents;
 			sourceTree = "<group>";
@@ -274,14 +289,13 @@
 		F25FD18A251FE67000EC470B /* CoremelysisML */ = {
 			isa = PBXGroup;
 			children = (
-				F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */,
-				F2D418332511A51B00474DBC /* MachineLearningError.swift */,
-				A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */,
-				F2D418352511BAC000474DBC /* SentimentAnalysisModel.swift */,
-				F2B99ED225091D5A0005D9B4 /* MLManager.swift */,
-				F24FBE7A252043020034D608 /* SentimentPolarity.mlmodel */,
 				F25FD18B251FE67000EC470B /* CoremelysisML.h */,
 				F25FD18C251FE67000EC470B /* Info.plist */,
+				F217EB3A2550F5BF00B0122F /* SAModel */,
+				A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */,
+				F21345E82557991900C55882 /* FileManager+Extension.swift */,
+				F24FBE7A252043020034D608 /* SentimentPolarity.mlmodel */,
+				F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */,
 			);
 			path = CoremelysisML;
 			sourceTree = "<group>";
@@ -566,11 +580,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E5B8992524D9E9006E3D6A /* shortcutIntents.intentdefinition in Sources */,
+				F217EB402550F6D600B0122F /* SAModel+Methods.swift in Sources */,
 				F24FBE7B252043020034D608 /* SentimentPolarity.mlmodel in Sources */,
-				F25FD19A251FE6EF00EC470B /* MLManager.swift in Sources */,
-				F25FD1A0251FE71B00EC470B /* MachineLearningError.swift in Sources */,
-				F25FD19F251FE71B00EC470B /* SentimentAnalysisModel.swift in Sources */,
+				F25FD19A251FE6EF00EC470B /* SAModel.swift in Sources */,
+				F25FD1A0251FE71B00EC470B /* SAModel+Errors.swift in Sources */,
 				F2E5B8A02524DAAC006E3D6A /* Sentiment.swift in Sources */,
+				F2C1B289255A0B4A00EEB9DD /* CustomSAModel.swift in Sources */,
+				F21345E92557991900C55882 /* FileManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,7 +42,7 @@ final class MainViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         setupLayout()
         setupUI()
-        
+
         title = "Coremelysis"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
