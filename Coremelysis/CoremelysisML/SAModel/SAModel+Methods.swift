@@ -77,7 +77,7 @@ extension SAModel {
     }
 
     private static func inferenceByCustomModel(_ data: String) throws -> Double {
-        guard let path = UserDefaults.standard.string(forKey: "customModel") else {
+        guard let path = UserDefaults.standard.string(forKey: "customModel"), !path.isEmpty else {
             throw Errors.modelNotAvaiable
         }
         let modelURL = URL(fileURLWithPath: path)
@@ -135,13 +135,32 @@ extension SAModel {
         FileManager.downloadFile(from: externalURL) { (result) in
             switch result {
             case .success(let url):
-                UserDefaults.standard.setValue(url, forKey: "customModel")
+                do {
+                    deleteCustomModel()
+                    let compiledModelURL = try MLModel.compileModel(at: url)
+                    let permanentURL = FileManager.persistFile(fileURL: compiledModelURL)
+                    UserDefaults.standard.setValue(permanentURL, forKey: "customModel")
+                } catch {
+                    downloadError = error
+                }
             case .failure(let error):
                 downloadError = error
             }
         }
         if let error = downloadError {
             throw error
+        }
+    }
+
+    public static func deleteCustomModel() {
+        guard let path = UserDefaults.standard.string(forKey: "customModel"), !path.isEmpty else {
+            return
+        }
+        do {
+            try FileManager.default.removeItem(atPath: path)
+            UserDefaults.standard.setValue(String(), forKey: "customModel")
+        } catch {
+            return
         }
     }
 }

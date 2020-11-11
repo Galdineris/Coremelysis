@@ -17,11 +17,8 @@ extension FileManager {
                 }
                 return
             }
-            if let permanentURL = persistFile(fileURL: localURL) {
-                handler(.success(permanentURL))
-            } else {
-                handler(.failure(URLError(.cannotWriteToFile)))
-            }
+            handler(.success(localURL))
+
         }
         task.resume()
     }
@@ -29,7 +26,7 @@ extension FileManager {
     static func persistFile(fileURL: URL) -> URL? {
         let fileManager = FileManager.default
         guard
-            let appSupportURL = fileManager.urls(for: .applicationSupportDirectory,
+            let appSupportURL = fileManager.urls(for: .documentDirectory,
                                                  in: .userDomainMask).first
         else {
             return nil
