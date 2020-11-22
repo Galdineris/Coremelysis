@@ -77,12 +77,13 @@ extension SAModel {
     }
 
     private static func inferenceByCustomModel(_ data: String) throws -> Double {
-        guard let path = UserDefaults.standard.string(forKey: "customModel"), !path.isEmpty else {
+        guard let compiledModelName = UserDefaults.standard.string(forKey: "customModel"),
+              !compiledModelName.isEmpty,
+              let modelURL = FileManager.appSupportFileURL(for: compiledModelName)
+        else {
             throw Errors.modelNotAvaiable
         }
-        let modelURL = URL(fileURLWithPath: path)
-        let modelConfig = MLModelConfiguration()
-        let customModel = try CustomSAModel(contentsOf: modelURL, configuration: modelConfig)
+        let customModel = try CustomSAModel(contentsOf: modelURL)
         let tokens = extractFeatures(from: data)
 
         if tokens.isEmpty {
@@ -138,8 +139,8 @@ extension SAModel {
                 do {
                     deleteCustomModel()
                     let compiledModelURL = try MLModel.compileModel(at: url)
-                    let permanentURL = FileManager.persistFile(fileURL: compiledModelURL)
-                    UserDefaults.standard.setValue(permanentURL, forKey: "customModel")
+                    let compiledModelName = FileManager.persistFile(fileURL: compiledModelURL)
+                    UserDefaults.standard.setValue(compiledModelName, forKey: "customModel")
                 } catch {
                     downloadError = error
                 }

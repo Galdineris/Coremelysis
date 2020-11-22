@@ -20,33 +20,51 @@ final class SettingsViewController: UIViewController {
         return tableView
     }()
 
+    private lazy var inputAlert: UIAlertController = {
+        let alert = UIAlertController(title: "Download Custom Model",
+                                      message: "Type or paste the URL to the mlmodel file bellow",
+                                      preferredStyle: .alert)
+        alert.addTextField { (field) in
+            field.keyboardType = .URL
+            field.autocorrectionType = .no
+        }
+        let dismissAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] (_) in
+            guard let url = alert.textFields?.first?.text else { return }
+            self?.viewModel.fetchModel(at: url)
+            self?.changeSelectedCell(to: self?.settingsCellArr[0][2] ?? UITableViewCell())
+        }
+        alert.addAction(dismissAction)
+        alert.addAction(okAction)
+        return alert
+    }()
+
+    private let modelCell: (String, String?) -> UITableViewCell = { (title, subtitle) in
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.textLabel?.text = title
+        cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        cell.detailTextLabel?.text = subtitle ?? ""
+        cell.tintColor = .coremelysisAccent
+        return cell
+    }
+
+    private let webLinkCell: (String) -> UITableViewCell = { (title) in
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = title
+        cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+
     private lazy var settingsCellArr: [[UITableViewCell]] = {
-        let coreMLCell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        coreMLCell.textLabel?.text = "CoreML"
-        coreMLCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        coreMLCell.tintColor = .coremelysisAccent
-        coreMLCell.detailTextLabel?.text = "Sentiment analysis using CoreML(NLP) default model."
+        let coreMLCell = modelCell("CoreML", "Sentiment analysis using CoreML(NLP) default model.")
+        let sentimentPolariyCell = modelCell("Sentiment Polarity", "Sentiment Analysis model converted by Vadym Markov")
+        let customModelCell = modelCell("Custom Model", nil)
+        let machineLearningSection = [coreMLCell, sentimentPolariyCell, customModelCell]
 
-        let sentimentPolariyCell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        sentimentPolariyCell.textLabel?.text = "Sentiment Polarity model"
-        sentimentPolariyCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        sentimentPolariyCell.tintColor = .coremelysisAccent
-        /// Add the correct source and from which python library the model was converted from.
-        sentimentPolariyCell.detailTextLabel?.text = "CoreML model converted by Vadym Markov"
-
-        let machineLearningSection = [coreMLCell, sentimentPolariyCell]
-
-        let gitHubCell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        gitHubCell.textLabel?.text = "GitHub"
-        gitHubCell.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        gitHubCell.accessoryType = .disclosureIndicator
-
-        let licenses = UITableViewCell(style: .default, reuseIdentifier: nil)
-        licenses.textLabel?.text = "Licenses"
-        licenses.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        licenses.accessoryType = .disclosureIndicator
-
-        let aboutSection = [gitHubCell, licenses]
+        let gitHubCell = webLinkCell("Github")
+        let licensesCell = webLinkCell("Licenses")
+        let aboutSection = [gitHubCell, licensesCell]
 
         return [machineLearningSection, aboutSection]
     }()
@@ -87,13 +105,11 @@ final class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         switch viewModel.selectedModel {
         case .default:
-            selectedMachineLearningCell = settingsCellArr[0][0]
-            selectedMachineLearningCell.accessoryType = .checkmark
+            changeSelectedCell(to: settingsCellArr[0][0])
         case .sentimentPolarity:
-            selectedMachineLearningCell = settingsCellArr[0][1]
-            selectedMachineLearningCell.accessoryType = .checkmark
+            changeSelectedCell(to: settingsCellArr[0][1])
         case .customModel:
-            break
+            changeSelectedCell(to: settingsCellArr[0][2])
         }
     }
 
@@ -127,18 +143,18 @@ final class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let section = settingsCellArr[indexPath.section]
-            if section[indexPath.row] !== selectedMachineLearningCell {
-                selectedMachineLearningCell.accessoryType = .none
-                section[indexPath.row].accessoryType = .checkmark
-                selectedMachineLearningCell = section[indexPath.row]
+            let cell = settingsCellArr[indexPath.section][indexPath.row]
+            if cell !== selectedMachineLearningCell {
                 switch indexPath.row {
                 case 0:
                     viewModel.selectedModel = .default
+                    changeSelectedCell(to: cell)
                 case 1:
                     viewModel.selectedModel = .sentimentPolarity
+                    changeSelectedCell(to: cell)
                 default:
-                    break
+                    self.present(inputAlert, animated: true, completion: nil)
+                    guard viewModel.selectedModel == .customModel else { return }
                 }
             }
         } else {
@@ -157,6 +173,12 @@ extension SettingsViewController: UITableViewDelegate {
                 return
             }
         }
+    }
+
+    private func changeSelectedCell(to cell: UITableViewCell) {
+            selectedMachineLearningCell.accessoryType = .none
+            selectedMachineLearningCell = cell
+            cell.accessoryType = .checkmark
     }
 }
 

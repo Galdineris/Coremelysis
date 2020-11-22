@@ -30,6 +30,7 @@ final class MainViewController: UIViewController {
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -46,22 +47,20 @@ final class MainViewController: UIViewController {
         title = "Coremelysis"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
+//        viewModel.updateModel()
     }
 
 // - MARK: UI updates
 
     /// Updates the result label with the result of an analysis.
-    private func updateResultLabel(using text: String) {
-        let sentiment = viewModel.analyze(text)
+    private func updateResultLabel(using sentiment: Sentiment) {
+        resultLabel.text = sentiment.rawValue
         switch sentiment {
         case .awful, .bad:
-            resultLabel.text = sentiment.rawValue
             resultLabel.backgroundColor = .coremelysisNegative
         case .neutral, .notFound:
-            resultLabel.text = sentiment.rawValue
             resultLabel.backgroundColor = .coremelysisNeutral
         case .good, .great:
-            resultLabel.text = sentiment.rawValue
             resultLabel.backgroundColor = .coremelysisPositive
         }
     }
@@ -92,6 +91,7 @@ final class MainViewController: UIViewController {
         contentTextField.placeholder = "Add here the content to be analyzed"
         contentTextField.font = .preferredFont(forTextStyle: .headline)
         contentTextField.textColor = .coremelysisAccent
+        addKeyboardDismissal()
     }
 
     /// Configures the UIButton responsible for calling the analysis.
@@ -150,7 +150,32 @@ final class MainViewController: UIViewController {
     /// Requests an analysis.
     @objc private func analyze() {
         if let content = contentTextField.text {
-            updateResultLabel(using: content)
+            let sentiment = viewModel.analyze(content)
+            updateResultLabel(using: sentiment)
         }
+    }
+}
+
+extension MainViewController: MainViewModelDelegate {
+    func handle(error: Error, retry retryHandler: (() -> Void)?) {
+        let alert = UIAlertController(errorDescription: error.localizedDescription)
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] (_) in
+            if let handler = retryHandler {
+                handler()
+            }
+        }
+    }
+}
+
+extension UIViewController {
+    /// Adds a tap gesture recognizer to the view to dismiss the keyboard.
+    func addKeyboardDismissal() {
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+
+    /// Objective-C function that dismisses the keyboard.
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

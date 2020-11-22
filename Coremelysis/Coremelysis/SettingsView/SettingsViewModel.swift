@@ -9,6 +9,10 @@
 import Foundation
 import CoremelysisML
 
+protocol SettingsViewModelDelegate: AnyObject {
+    
+}
+
 final class SettingsViewModel {
     // - MARK: Properties
     /// The current model straight from UserDefaults through the property wrapper.
@@ -17,6 +21,8 @@ final class SettingsViewModel {
     @UserDefaultsAccess(key: UserDefaultsKey.model.rawValue,
                         defaultValue: SAModel.default.rawValue)
     private var currentModel: String
+
+    weak var delegate: SettingsViewModelDelegate?
 
     /// The currently selected model. It is used as a internal access to the UserDefaults key
     /// in charge of keeping the current model value.
@@ -41,5 +47,14 @@ final class SettingsViewModel {
 
     // - MARK: Init
     init() {
+    }
+
+    // - MARK: Methods
+
+    func fetchModel(at address: String) {
+        guard let url = URL(string: address) else { return }
+        UserDefaults.standard.setValue(url.path, forKey: "customModelURL")
+        guard (try? SAModel.downloadModel(from: url)) != nil else { return }
+        selectedModel = .customModel
     }
 }

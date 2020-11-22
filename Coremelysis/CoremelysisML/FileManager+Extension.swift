@@ -23,18 +23,28 @@ extension FileManager {
         task.resume()
     }
 
-    static func persistFile(fileURL: URL) -> URL? {
+    static func persistFile(fileURL: URL) -> String? {
         let fileManager = FileManager.default
         guard
-            let appSupportURL = fileManager.urls(for: .documentDirectory,
+            let appSupportURL = fileManager.urls(for: .applicationSupportDirectory,
                                                  in: .userDomainMask).first
         else {
             return nil
         }
         let compiledModelName = fileURL.lastPathComponent
         let permanentURL = appSupportURL.appendingPathComponent(compiledModelName)
-        return try? fileManager.replaceItemAt(permanentURL,
-                                          withItemAt: fileURL)
+        do {
+            try fileManager.moveItem(at: fileURL, to: permanentURL)
+            return compiledModelName
+        } catch {
+            return nil
+        }
     }
 
+    static func appSupportFileURL(for fileNamed: String) -> URL? {
+        let fileManager = FileManager.default
+        guard let appSupportDirectory = try? fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return nil }
+        let permanentURL = appSupportDirectory.appendingPathComponent(fileNamed)
+        return permanentURL
+    }
 }

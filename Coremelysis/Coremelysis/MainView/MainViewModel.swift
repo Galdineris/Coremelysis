@@ -11,7 +11,7 @@ import CoremelysisML
 import Intents
 
 protocol MainViewModelDelegate: AnyObject {
-
+    func handle(error: Error, retry retryHandler: (() -> Void)?)
 }
 
 final class MainViewModel {
@@ -29,20 +29,32 @@ final class MainViewModel {
 
     func analyze(_ paragraph: String) -> Sentiment {
         let model = SAModel.init(rawValue: currentModel) ?? .default
-        donateAnalysisIntent(paragraph, model)
-        guard let inference = try? model.infer(text: paragraph) else {
+        do {
+            let inference = try model.infer(text: paragraph)
+
+            let sentiment = Sentiment.of(inference)
+
+            if sentiment != .notFound {
+                save(entry: HistoryEntry(creationDate: Date(),
+                                         inference: sentiment,
+                                         content: paragraph))
+                donateAnalysisIntent(paragraph, model)
+            }
+
+            return sentiment
+        } catch {
             return Sentiment.notFound
         }
+    }
 
-        let sentiment = Sentiment.of(inference)
-
-        if sentiment != .notFound {
-            save(entry: HistoryEntry(creationDate: Date(),
-                                     inference: sentiment,
-                                     content: paragraph))
+    func updateModel() {
+        let model = SAModel.init(rawValue: currentModel) ?? .default
+        if model == .customModel {
+            if let stringURL = UserDefaults.standard.string(forKey: "customModelURL") {
+                let url = URL(fileURLWithPath: stringURL)
+                guard (try? SAModel.downloadModel(from: url)) != nil else { return }
+            }
         }
-
-        return sentiment
     }
 
     private func donateAnalysisIntent(_ data: String, _ model: SAModel =  .default) {
@@ -65,7 +77,13 @@ final class MainViewModel {
         cdEntry.content = entry.content
         cdEntry.inference = entry.inference.rawValue
 
-        coreDataStack.save()
+        do {
+            try coreDataStack.save()
+        } catch {
+            delegate?.handle(error: error) {[weak self] in
+                self?.save(entry: entry)
+            }
+        }
     }
 
     init(coreDataStack: CoreDataStack) {

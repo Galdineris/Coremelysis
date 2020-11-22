@@ -23,9 +23,10 @@
 		A486C41524F7F6AF0085BC58 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486C41424F7F6AF0085BC58 /* SettingsViewModel.swift */; };
 		A4A8370E25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */; };
 		A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */; };
-		A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor.swift */; };
+		A4F8B95C2513ADD200DE006B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8B95B2513ADD200DE006B /* UIColor+Extension.swift */; };
 		F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD792526280900E7C6A3 /* AppDelegate.swift */; };
 		F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */; };
+		F21294282567435500D084E1 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21294272567435500D084E1 /* UIAlertController+Extension.swift */; };
 		F21345E92557991900C55882 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21345E82557991900C55882 /* FileManager+Extension.swift */; };
 		F214C92C24F6AE6700170DA8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */; };
 		F217EB402550F6D600B0122F /* SAModel+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217EB3F2550F6D600B0122F /* SAModel+Methods.swift */; };
@@ -118,10 +119,11 @@
 		A4A8370D25236B6A004D3CBE /* HistoryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A4BD58C824EC9A9F004F38FB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A4BD58CA24EC9BC7004F38FB /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
-		A4F8B95B2513ADD200DE006B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A4F8B95B2513ADD200DE006B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F203FD792526280900E7C6A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F203FD7A2526280900E7C6A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = shortcutIntents.intentdefinition; sourceTree = "<group>"; };
+		F21294272567435500D084E1 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		F21345E82557991900C55882 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		F214C92B24F6AE6700170DA8 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F214C92D24F6AFC600170DA8 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
@@ -259,7 +261,8 @@
 		A4F8B95A2513ADBA00DE006B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A4F8B95B2513ADD200DE006B /* UIColor.swift */,
+				A4F8B95B2513ADD200DE006B /* UIColor+Extension.swift */,
+				F21294272567435500D084E1 /* UIAlertController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F91A24252624330037AF67 /* HistoryEntry.swift in Sources */,
+				F21294282567435500D084E1 /* UIAlertController+Extension.swift in Sources */,
 				A44AEA15251FD4F200352E21 /* AutoLayout.swift in Sources */,
 				A40859432521301C003BC5CE /* Coremelysis.xcdatamodeld in Sources */,
 				F203FD7B2526280900E7C6A3 /* AppDelegate.swift in Sources */,
@@ -603,7 +607,7 @@
 				A40C88CC2518EE66001199C6 /* HistorySummaryViewModel.swift in Sources */,
 				A480CF4D25110BDD0026586E /* DesignSystem.swift in Sources */,
 				A4BD58C924EC9A9F004F38FB /* MainViewModel.swift in Sources */,
-				A4F8B95C2513ADD200DE006B /* UIColor.swift in Sources */,
+				A4F8B95C2513ADD200DE006B /* UIColor+Extension.swift in Sources */,
 				A408594525213820003BC5CE /* Entry+Extension.swift in Sources */,
 				A486C41324F7F6A50085BC58 /* SettingsViewController.swift in Sources */,
 				A45E6E2F2517CF64003FB0C9 /* HistoryTableViewCell.swift in Sources */,
