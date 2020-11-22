@@ -11,7 +11,7 @@ import CoremelysisML
 import Intents
 
 protocol MainViewModelDelegate: AnyObject {
-
+    func handle(error: Error, retry retryHandler: (() -> Void)?)
 }
 
 final class MainViewModel {
@@ -24,36 +24,50 @@ final class MainViewModel {
     /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
     /// hardcoded/literal strings and values.
     @UserDefaultsAccess(key: UserDefaultsKey.model.rawValue,
-                        defaultValue: SentimentAnalysisModel.default.rawValue)
+                        defaultValue: SAModel.default.rawValue)
     private var currentModel: String
 
     func analyze(_ paragraph: String) -> Sentiment {
-        var selectedModel: Model = .naturalLanguage
-        var modelForInference: SentimentAnalysisModel = .default
-        if currentModel == SentimentAnalysisModel.sentimentPolarity.rawValue {
-            selectedModel = .sentimentPolarity
-            modelForInference = .sentimentPolarity
-        }
-        donateAnalysisIntent(paragraph, selectedModel)
-        guard let inference = MLManager.analyze(paragraph, with: modelForInference) else {
+        let model = SAModel.init(rawValue: currentModel) ?? .default
+        do {
+            let inference = try model.infer(text: paragraph)
+
+            let sentiment = Sentiment.of(inference)
+
+            if sentiment != .notFound {
+                save(entry: HistoryEntry(creationDate: Date(),
+                                         inference: sentiment,
+                                         content: paragraph))
+                donateAnalysisIntent(paragraph, model)
+            }
+
+            return sentiment
+        } catch {
             return Sentiment.notFound
         }
-
-        let sentiment = Sentiment.of(inference)
-
-        if sentiment != .notFound {
-            save(entry: HistoryEntry(creationDate: Date(),
-                                     inference: sentiment,
-                                     content: paragraph))
-        }
-
-        return sentiment
     }
 
-    private func donateAnalysisIntent(_ data: String, _ model: Model =  .naturalLanguage) {
+    func updateModel() {
+        let model = SAModel.init(rawValue: currentModel) ?? .default
+        if model == .customModel {
+            if let stringURL = UserDefaults.standard.string(forKey: "customModelURL") {
+                let url = URL(fileURLWithPath: stringURL)
+                guard (try? SAModel.downloadModel(from: url)) != nil else { return }
+            }
+        }
+    }
+
+    private func donateAnalysisIntent(_ data: String, _ model: SAModel =  .default) {
         let intent =  MakeAnalysisIntent()
         intent.text = data
-        intent.model = model
+        switch model {
+        case .default:
+            intent.model = SiriModel.naturalLanguage
+        case .sentimentPolarity:
+            intent.model = SiriModel.sentimentPolarity
+        case .customModel:
+            intent.model = SiriModel.unknown
+        }
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.donate(completion: nil)
     }
@@ -63,7 +77,13 @@ final class MainViewModel {
         cdEntry.content = entry.content
         cdEntry.inference = entry.inference.rawValue
 
-        coreDataStack.save()
+        do {
+            try coreDataStack.save()
+        } catch {
+            delegate?.handle(error: error) {[weak self] in
+                self?.save(entry: entry)
+            }
+        }
     }
 
     init(coreDataStack: CoreDataStack) {

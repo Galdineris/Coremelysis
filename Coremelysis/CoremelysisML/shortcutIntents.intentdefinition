@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>INEnumDisplayName</key>
-			<string>Model</string>
+			<string>Siri Model</string>
 			<key>INEnumDisplayNameID</key>
 			<string>5E15fo</string>
 			<key>INEnumGeneratesHeader</key>
 			<true/>
 			<key>INEnumName</key>
-			<string>Model</string>
+			<string>SiriModel</string>
 			<key>INEnumType</key>
 			<string>Regular</string>
 			<key>INEnumValues</key>
@@ -70,9 +70,9 @@
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>19H2</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>12A7300</string>
+	<string>12A7403</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>12.0.1</string>
+	<string>12.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -89,7 +89,7 @@
 			<key>INIntentKeyParameter</key>
 			<string>text</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>5</integer>
+			<integer>7</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
 				<key>text,model</key>
@@ -191,7 +191,7 @@
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
 					<key>INIntentParameterEnumType</key>
-					<string>Model</string>
+					<string>SiriModel</string>
 					<key>INIntentParameterEnumTypeNamespace</key>
 					<string>sFC3fy</string>
 					<key>INIntentParameterName</key>
@@ -206,7 +206,7 @@
 						</dict>
 					</array>
 					<key>INIntentParameterTag</key>
-					<integer>5</integer>
+					<integer>7</integer>
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
 				</dict>

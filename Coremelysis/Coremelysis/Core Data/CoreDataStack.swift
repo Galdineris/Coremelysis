@@ -31,7 +31,7 @@ final class CoreDataStack {
 
         container.loadPersistentStores { (_, error) in
             if let error = error {
-                fatalError("Failed to load persistent store")
+                fatalError("Failed to load persistent store: \(error.localizedDescription)")
             }
 
             container.viewContext.automaticallyMergesChangesFromParent = true
@@ -54,14 +54,21 @@ final class CoreDataStack {
     }
 
     /// Saves any changes in the main context. If no changes have been made, nothing will happen.
-    func save() {
+    func save() throws {
         if mainContext.hasChanges {
-            do {
-                try mainContext.save()
-            } catch {
-                // - TODO: Handle error
-            }
+            try mainContext.save()
         } else {
+
+        }
+    }
+
+    private enum Errors: Error, CustomStringConvertible {
+        case failedToSave
+        var description: String {
+            switch self {
+            case .failedToSave:
+                return "Failed to save changes to the device"
+            }
         }
     }
 }

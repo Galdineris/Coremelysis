@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension MLManager {
+extension SAModel {
     /// Coremelysis's Machine Learning Errors
-    enum MachineLearningError: Error {
+    enum Errors: Error {
         /// Machine Learning Error
         case failedPrediction
         /// Machine Learning Error
@@ -22,7 +22,7 @@ extension MLManager {
     }
 }
 
-extension MLManager.MachineLearningError: CustomStringConvertible {
+extension SAModel.Errors: CustomStringConvertible {
     var description: String {
         switch self {
         case .failedPrediction:

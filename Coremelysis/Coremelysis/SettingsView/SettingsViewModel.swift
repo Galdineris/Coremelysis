@@ -9,29 +9,26 @@
 import Foundation
 import CoremelysisML
 
+protocol SettingsViewModelDelegate: AnyObject {
+    
+}
+
 final class SettingsViewModel {
     // - MARK: Properties
     /// The current model straight from UserDefaults through the property wrapper.
     /// `UserDefaultsAccess`. Both key and defaultValue should be set using enums to avoid
     /// hardcoded/literal strings and values.
     @UserDefaultsAccess(key: UserDefaultsKey.model.rawValue,
-                        defaultValue: SentimentAnalysisModel.default.rawValue)
+                        defaultValue: SAModel.default.rawValue)
     private var currentModel: String
+
+    weak var delegate: SettingsViewModelDelegate?
 
     /// The currently selected model. It is used as a internal access to the UserDefaults key
     /// in charge of keeping the current model value.
-    var selectedModel: SentimentAnalysisModel {
+    var selectedModel: SAModel {
         get {
-            switch currentModel {
-            case SentimentAnalysisModel.default.rawValue:
-                return SentimentAnalysisModel.default
-            case SentimentAnalysisModel.sentimentPolarity.rawValue:
-                return SentimentAnalysisModel.sentimentPolarity
-            case SentimentAnalysisModel.customModel.rawValue:
-                return SentimentAnalysisModel.customModel
-            default:
-                return SentimentAnalysisModel.default
-            }
+            return SAModel(rawValue: currentModel) ?? .default
         }
         set {
             currentModel = newValue.rawValue
@@ -50,5 +47,14 @@ final class SettingsViewModel {
 
     // - MARK: Init
     init() {
+    }
+
+    // - MARK: Methods
+
+    func fetchModel(at address: String) {
+        guard let url = URL(string: address) else { return }
+        UserDefaults.standard.setValue(url.path, forKey: "customModelURL")
+        guard (try? SAModel.downloadModel(from: url)) != nil else { return }
+        selectedModel = .customModel
     }
 }
