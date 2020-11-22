@@ -19,6 +19,16 @@ final class CoreDataStack {
     /// `automaticallyMergesChangesFromParent` property as true.
     private lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.model)
+        let defaultURL = NSPersistentContainer.defaultDirectoryURL()
+        let sqliteURL = defaultURL.appendingPathComponent("\(self.model).sqlite")
+        let newDescription = NSPersistentStoreDescription(url: sqliteURL)
+
+        newDescription.shouldAddStoreAsynchronously = false
+        newDescription.shouldInferMappingModelAutomatically = true
+        newDescription.shouldMigrateStoreAutomatically = true
+
+        container.persistentStoreDescriptions = [newDescription]
+
         container.loadPersistentStores { (_, error) in
             if let error = error {
                 fatalError("Failed to load persistent store: \(error.localizedDescription)")

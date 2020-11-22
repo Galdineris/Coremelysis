@@ -43,7 +43,6 @@ final class MainViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         setupLayout()
         setupUI()
-
         title = "Coremelysis"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -73,6 +72,7 @@ final class MainViewController: UIViewController {
         setupContentTextField()
         setupAnalyzeButton()
         setupResultLabel()
+        hideKeyboardOnTap()
     }
 
     /// Configures the label containing a brief description of the app.

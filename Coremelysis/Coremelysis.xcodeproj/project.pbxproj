@@ -44,6 +44,7 @@
 		F2625D7624E5FE5500ABBA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2625D7424E5FE5500ABBA88 /* LaunchScreen.storyboard */; };
 		F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */; };
 		F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */; };
+		F296BD78256AF64300C89E43 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296BD77256AF64300C89E43 /* UIViewController+Extension.swift */; };
 		F2C1B289255A0B4A00EEB9DD /* CustomSAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1B288255A0B4A00EEB9DD /* CustomSAModel.swift */; };
 		F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		F2E5B8992524D9E9006E3D6A /* shortcutIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F208C6EE2518F1FA007385F3 /* shortcutIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
@@ -144,6 +145,7 @@
 		F2625D7D24E5FF3200ABBA88 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F271FC2F24F6A89900011DD1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F293A5D82524D6F00010FB91 /* CoremelysisIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoremelysisIntents.entitlements; sourceTree = "<group>"; };
+		F296BD77256AF64300C89E43 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F2B96B5D24E755C000AD118B /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		F2B99ED225091D5A0005D9B4 /* SAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAModel.swift; sourceTree = "<group>"; };
 		F2C1B288255A0B4A00EEB9DD /* CustomSAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSAModel.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				A4F8B95B2513ADD200DE006B /* UIColor+Extension.swift */,
 				F21294272567435500D084E1 /* UIAlertController+Extension.swift */,
+				F296BD77256AF64300C89E43 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				A44AEA17251FD72700352E21 /* UserDefaults.swift in Sources */,
 				A408593F2521235B003BC5CE /* ExternalURL.swift in Sources */,
 				F2625D7E24E5FF3200ABBA88 /* MainViewController.swift in Sources */,
+				F296BD78256AF64300C89E43 /* UIViewController+Extension.swift in Sources */,
 				F203FD7C2526280900E7C6A3 /* SceneDelegate.swift in Sources */,
 				F271FC3024F6A89900011DD1 /* HistoryViewController.swift in Sources */,
 				F2E5B8962524D9E8006E3D6A /* shortcutIntents.intentdefinition in Sources */,
