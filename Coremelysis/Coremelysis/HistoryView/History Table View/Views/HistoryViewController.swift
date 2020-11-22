@@ -9,7 +9,7 @@ import UIKit
 
 /// The representation of the History screen of the app.
 final class HistoryViewController: UIViewController {
-// - MARK: Properties
+    // - MARK: Properties
 
     /// The history displayed in a UITableView format.
     @AutoLayout private var historyTableView: UITableView
@@ -19,7 +19,7 @@ final class HistoryViewController: UIViewController {
     /// The ViewModel of this type.
     private let viewModel: HistoryViewModel
 
-// - MARK: Init
+    // - MARK: Init
     init(viewModel: HistoryViewModel, summaryViewController: HistorySummaryViewController) {
         self.viewModel = viewModel
         self.summaryViewController = summaryViewController
@@ -31,13 +31,14 @@ final class HistoryViewController: UIViewController {
         fatalError("Fatal Error: ViewController should not be deserialized.")
     }
 
-// - MARK: Life cycle
+    // - MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupHistoryTableView()
         setupConstraints()
-
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareSummary))
+        self.navigationItem.rightBarButtonItem?.tintColor = .coremelysisAccent
         title = "History"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -48,7 +49,18 @@ final class HistoryViewController: UIViewController {
         summaryViewController.update(with: viewModel.buildSummary())
     }
 
-// - MARK: Layout
+    @objc func shareSummary() {
+        let summary = viewModel.buildSummary()
+        let items: [String] = ["""
+        Total number of entries: \(summary.numberOfEntries).
+        Positive: \(summary.numberOfPositiveEntries) |
+        Negative: \(summary.numberOfNegativeEntries) |
+        Neutral: \(summary.numberOfNeutralEntries)
+        """]
+        let shareController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(shareController, animated: true, completion: nil)
+    }
+    // - MARK: Layout
     /// Configures the main view.
     private func setupView() {
         view.backgroundColor = .systemBackground
